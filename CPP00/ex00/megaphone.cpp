@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 11:55:16 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/04/29 14:54:57 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:09:34 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 
 	i = 1;
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << "\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else if (argc > 1)
 	{
 		while (i < argc)
@@ -39,6 +39,6 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 	return (0);
 }
