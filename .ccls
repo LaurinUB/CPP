@@ -1,0 +1,6 @@
+c++
+-Wall
+-Werror
+-Wextra
+-std=c++98
+-std=gnu98
