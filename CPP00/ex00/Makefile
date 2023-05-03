@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 11:43:56 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/03 15:09:29 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/03 17:21:37 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CPPFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
 GREEN			= \033[0;32m
 CYAN			= \033[0;36m
+RED				= \033[0;31m
 WHITE			= \033[0m
 
 SRC				= megaphone.cpp
@@ -40,9 +41,11 @@ run:	all
 	./$(NAME)
 
 clean:
-	rm -f $(OBJ)
+	@echo "$(RED)rm -f $(OBJ)$(WHITE)"
+	@rm -f $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	@echo "$(RED)rm -f $(OBJ)$(WHITE)"
+	@rm -f $(NAME)
 
 re: fclean all
