@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 11:43:56 by luntiet-          #+#    #+#              #
-#    Updated: 2023/04/29 14:38:37 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/03 15:09:29 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,22 @@ NAME			= megaphone
 CC				= c++
 CPPFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
+GREEN			= \033[0;32m
+CYAN			= \033[0;36m
+WHITE			= \033[0m
+
 SRC				= megaphone.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	@$(CC) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)Compiled successfully$(WHITE)"
 
-%.o:	%.c
-	$(CC) $(CPPFLAGS) -c -o $@ $<
+%.o:	%.cpp
+	@echo "$(CYAN)Compiling$(WHITE): $<"
+	@$(CC) $(CPPFLAGS) -c -o $@ $<
 
 run:	all
 	@echo ""

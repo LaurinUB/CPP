@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 11:43:56 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/01 10:50:15 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/03 15:09:36 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,22 @@ NAME			= Phonebook
 CC				= c++
 CPPFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
+GREEN			= \033[0;32m
+CYAN			= \033[0;36m
+WHITE			= \033[0m
+
 SRC				= PhoneBook.cpp Contact.cpp main.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	@$(CC) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)Compiled successfully$(WHITE)"
 
-%.o:	%.c
-	$(CC) $(CPPFLAGS) -c -o $@ $<
+%.o:	%.cpp
+	@echo "$(CYAN)Compiling$(WHITE):	$<"
+	@$(CC) $(CPPFLAGS) -c -o $@ $<
 
 run:	all
 	./$(NAME)
