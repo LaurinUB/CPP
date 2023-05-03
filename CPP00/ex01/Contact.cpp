@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:13:53 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 09:19:56 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:13:46 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,50 +25,50 @@ Contact::~Contact(void)
 
 void	Contact::set_first_name(std::string arg)
 {
-	this->_first_name = arg;
+	this->first_name_ = arg;
 }
 
 void	Contact::set_last_name(std::string arg)
 {
-	this->_last_name = arg;
+	this->last_name_ = arg;
 }
 
 void	Contact::set_nickname(std::string arg)
 {
-	this->_nickname = arg;
+	this->nickname_ = arg;
 }
 
 void	Contact::set_phone_number(std::string arg)
 {
-	this->_phone_number = arg;
+	this->phone_number_ = arg;
 }
 
 void	Contact::set_darkest_secret(std::string arg)
 {
-	this->_darkest_secret = arg;
+	this->darkest_secret_ = arg;
 }
 
 std::string	Contact::get_first_name(void)
 {
-	return (this->_first_name);
+	return (this->first_name_);
 }
 
 std::string	Contact::get_last_name(void)
 {
-	return (this->_last_name);
+	return (this->last_name_);
 }
 
 std::string	Contact::get_nickname(void)
 {
-	return (this->_nickname);
+	return (this->nickname_);
 }
 
 std::string	Contact::get_phone_number(void)
 {
-	return (this->_phone_number);
+	return (this->phone_number_);
 }
 
 std::string	Contact::get_darkest_secret(void)
 {
-	return (this->_darkest_secret);
+	return (this->darkest_secret_);
 }

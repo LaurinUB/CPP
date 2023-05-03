@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:04 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 16:57:24 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:13:32 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ class Contact
 	private :
 
 
-		std::string	_first_name;
-		std::string	_last_name;
-		std::string	_nickname;
-		std::string	_phone_number;
-		std::string	_darkest_secret;
+		std::string	first_name_;
+		std::string	last_name_;
+		std::string	nickname_;
+		std::string	phone_number_;
+		std::string	darkest_secret_;
 };
 
 #endif
