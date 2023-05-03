@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:15:46 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 09:42:08 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:52:50 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define PHONEBOOK_H
 
 #include "Contact.hpp"
+
+#define RESET       "\033[0m"
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define YELLOW      "\033[33m"
+#define PURPLE      "\033[35m"
 
 class	PhoneBook
 {
@@ -25,6 +31,10 @@ class	PhoneBook
 		void		add_contact(void);
 
 		Contact contact[8];
+
+	private :
+
+		size_t	pos_;
 };
 
 #endif

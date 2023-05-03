@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:04 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 09:13:40 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:57:24 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
+		void			show(void);
 		void			set_first_name(std::string arg);
 		void			set_last_name(std::string arg);
 		void			set_nickname(std::string arg);
