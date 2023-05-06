@@ -6,13 +6,12 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:13:53 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 11:25:03 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 12:58:54 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
-#include <ios>
 #include <iomanip>
 
 Contact::Contact(void)
@@ -27,13 +26,15 @@ Contact::~Contact(void)
 
 std::string	cut_length(std::string str)
 {
+	std::string	res;
+
 	if (str.length() <= 10)
 		return (str);
 	else
 	{
-		str = str.substr(0, 9);
-		str.push_back('.');
-		return (str);
+		res = str.substr(0, 9);
+		res.push_back('.');
+		return (res);
 	}
 }
 
@@ -41,7 +42,7 @@ void	Contact::show(size_t i)
 {
 	if (!this->first_name_.empty())
 	{
-		std::cout << " | ";
+		std::cout << YELLOW  " | ";
 		std::cout.width(10);
 		std::cout.setf(std::cout.right);
 		std::cout << i << " | ";
@@ -53,8 +54,18 @@ void	Contact::show(size_t i)
 		std::cout << cut_length(this->last_name_) << " | ";
 		std::cout.width(10);
 		std::cout.setf(std::cout.right);
-		std::cout << cut_length(this->nickname_) << " | " << std::endl;
+		std::cout << cut_length(this->nickname_) << " | " RESET << std::endl;
 	}
+}
+
+void	Contact::showlines()
+{
+	std::cout << YELLOW;
+	std::cout << "first name:	" << this->first_name_  << std::endl;
+	std::cout << "last name:	" << this->last_name_ << std::endl;
+	std::cout << "nickname:	" << this->nickname_ << std::endl;
+	std::cout << "phone number:	" << this->phone_number_ << std::endl;
+	std::cout << "darkest secret:	" << this->darkest_secret_  << RESET << std::endl;
 }
 
 void	Contact::set_first_name(std::string arg)

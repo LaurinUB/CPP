@@ -6,12 +6,15 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:04 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 11:27:05 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 12:42:15 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
+
+#define RESET       "\033[0m"
+#define YELLOW      "\033[33m"
 
 #include <iostream>
 
@@ -23,6 +26,7 @@ class Contact
 		~Contact(void);
 
 		void			show(size_t i);
+		void			showlines();
 		void			set_first_name(std::string arg);
 		void			set_last_name(std::string arg);
 		void			set_nickname(std::string arg);

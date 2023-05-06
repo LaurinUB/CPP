@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:12:49 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 11:25:32 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:21:30 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,69 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
+void	print_table(void)
+{
+	std::cout << YELLOW  " | ";
+	std::cout.width(10);
+	std::cout.setf(std::cout.right);
+	std::cout << "index" <<  " | ";
+	std::cout.width(10);
+	std::cout.setf(std::cout.right);
+	std::cout << "first name" << " | ";
+	std::cout.width(10);
+	std::cout.setf(std::cout.right);
+	std::cout << "last name" << " | ";
+	std::cout.width(10);
+	std::cout.setf(std::cout.right);
+	std::cout << "nickname" << " | " RESET<< std::endl;
+}
+
+void	PhoneBook::index_input(void)
+{
+	int			index;
+	std::string	arg;
+
+	index = 0;
+	while (!std::cin.eof())
+	{
+		std::cout << "Enter contact index: ";
+		std::getline(std::cin, arg, '\n');
+		if (!std::cin.eof() && (arg.empty() || arg.length() != 1))
+		{
+			std::cout << RED "Index out of range or not a number." RESET << std::endl;
+			continue;
+		}
+		if (arg.empty())
+			break;
+		index = arg.at(0) - 48;
+		if(!std::cin.eof() && index > 0 && index < 9)
+		{
+			if (this->contact[index - 1].get_first_name().empty())
+				std::cout << RED "No contact at that index." RESET << std::endl;
+			else
+			{
+				this->contact[index - 1].showlines();
+				return ;
+			}
+		}
+		else if (!std::cin.eof())
+			std::cout << RED "Index out of range." RESET << std::endl;
+	}
+}
+
 void	PhoneBook::showall(void)
 {
-	size_t	i;
-
+	size_t		i;
+	std::string	arg;
+	
+	print_table();
 	i = 0;
 	while (i < 8)
 	{
 		this->contact[i].show(i + 1);
 		i++;
 	}
+	index_input();
 }
 
 std::string	force_input(std::string arg, std::string field)
