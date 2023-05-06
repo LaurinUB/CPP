@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:13:53 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 12:58:54 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:47:02 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ std::string	cut_length(std::string str)
 		return (str);
 	else
 	{
-		res = str.substr(0, 9);
-		res.push_back('.');
+		res = str.substr(0, 9).append(".");
 		return (res);
 	}
 }
@@ -43,18 +42,10 @@ void	Contact::show(size_t i)
 	if (!this->first_name_.empty())
 	{
 		std::cout << YELLOW  " | ";
-		std::cout.width(10);
-		std::cout.setf(std::cout.right);
-		std::cout << i << " | ";
-		std::cout.width(10);
-		std::cout.setf(std::cout.right);
-		std::cout << cut_length(this->first_name_) << " | ";
-		std::cout.width(10);
-		std::cout.setf(std::cout.right);
-		std::cout << cut_length(this->last_name_) << " | ";
-		std::cout.width(10);
-		std::cout.setf(std::cout.right);
-		std::cout << cut_length(this->nickname_) << " | " RESET << std::endl;
+		std::cout << std::right << std::setw(10) << i << " | ";
+		std::cout << std::right << std::setw(10) << cut_length(this->first_name_) << " | ";
+		std::cout << std::right << std::setw(10) << cut_length(this->last_name_) << " | ";
+		std::cout << std::right << std::setw(10) << cut_length(this->nickname_) << " | " RESET << std::endl;
 	}
 }
 

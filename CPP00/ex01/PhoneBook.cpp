@@ -6,12 +6,13 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:12:49 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 13:21:30 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:47:26 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <iomanip>
 
 PhoneBook::PhoneBook(void)
 {
@@ -27,18 +28,10 @@ PhoneBook::~PhoneBook(void)
 void	print_table(void)
 {
 	std::cout << YELLOW  " | ";
-	std::cout.width(10);
-	std::cout.setf(std::cout.right);
-	std::cout << "index" <<  " | ";
-	std::cout.width(10);
-	std::cout.setf(std::cout.right);
-	std::cout << "first name" << " | ";
-	std::cout.width(10);
-	std::cout.setf(std::cout.right);
-	std::cout << "last name" << " | ";
-	std::cout.width(10);
-	std::cout.setf(std::cout.right);
-	std::cout << "nickname" << " | " RESET<< std::endl;
+	std::cout << std::right << std::setw(10) << "index" <<  " | ";
+	std::cout << std::right << std::setw(10) << "first name" << " | ";
+	std::cout << std::right << std::setw(10) << "last name" << " | ";
+	std::cout << std::right << std::setw(10) << "nickname" << " | " RESET<< std::endl;
 }
 
 void	PhoneBook::index_input(void)
@@ -61,7 +54,7 @@ void	PhoneBook::index_input(void)
 		index = arg.at(0) - 48;
 		if(!std::cin.eof() && index > 0 && index < 9)
 		{
-			if (this->contact[index - 1].get_first_name().empty())
+			if (this->pos_ == 0)
 				std::cout << RED "No contact at that index." RESET << std::endl;
 			else
 			{
