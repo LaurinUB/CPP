@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:15:46 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 16:52:50 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 11:24:58 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	PhoneBook
 		~PhoneBook(void);
 
 		void		add_contact(void);
+		void		showall(void);
 
 		Contact contact[8];
 

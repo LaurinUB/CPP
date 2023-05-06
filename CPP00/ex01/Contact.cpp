@@ -6,12 +6,14 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:13:53 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 17:13:46 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 11:25:03 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
+#include <ios>
+#include <iomanip>
 
 Contact::Contact(void)
 {
@@ -21,6 +23,38 @@ Contact::Contact(void)
 Contact::~Contact(void)
 {
 	return;
+}
+
+std::string	cut_length(std::string str)
+{
+	if (str.length() <= 10)
+		return (str);
+	else
+	{
+		str = str.substr(0, 9);
+		str.push_back('.');
+		return (str);
+	}
+}
+
+void	Contact::show(size_t i)
+{
+	if (!this->first_name_.empty())
+	{
+		std::cout << " | ";
+		std::cout.width(10);
+		std::cout.setf(std::cout.right);
+		std::cout << i << " | ";
+		std::cout.width(10);
+		std::cout.setf(std::cout.right);
+		std::cout << cut_length(this->first_name_) << " | ";
+		std::cout.width(10);
+		std::cout.setf(std::cout.right);
+		std::cout << cut_length(this->last_name_) << " | ";
+		std::cout.width(10);
+		std::cout.setf(std::cout.right);
+		std::cout << cut_length(this->nickname_) << " | " << std::endl;
+	}
 }
 
 void	Contact::set_first_name(std::string arg)

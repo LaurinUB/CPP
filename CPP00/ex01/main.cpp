@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:47 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/03 15:15:38 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/06 11:24:10 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	input_loop(PhoneBook book)
 		else if (!arg.compare("ADD"))
 			book.add_contact();
 		else if (!arg.compare("SEARCH"))
-			std::cout << "You are searching" << std::endl;
+			book.showall();
 	}
 }
 
