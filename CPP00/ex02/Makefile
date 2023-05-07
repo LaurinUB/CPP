@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 13:26:52 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/06 13:27:58 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/07 14:25:02 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CYAN			= \033[0;36m
 RED				= \033[0;31m
 WHITE			= \033[0m
 
-SRC				= Account.cpp test.cpp
+SRC				= Account.cpp tests.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
