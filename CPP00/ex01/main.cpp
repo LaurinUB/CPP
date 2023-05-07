@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:47 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 13:23:44 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:26:41 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 		else if (!arg.compare("SEARCH"))
 		{
 			if (book.contact[0].get_first_name().empty())
-				std::cout << RED "No contact saved!" RESET << std::endl;
+				std::cout << RED "No contact saved!" WHITE << std::endl;
 			else
 				book.showall();
 		}

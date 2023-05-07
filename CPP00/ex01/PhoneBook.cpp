@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:12:49 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 17:47:26 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:24:50 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_table(void)
 	std::cout << std::right << std::setw(10) << "index" <<  " | ";
 	std::cout << std::right << std::setw(10) << "first name" << " | ";
 	std::cout << std::right << std::setw(10) << "last name" << " | ";
-	std::cout << std::right << std::setw(10) << "nickname" << " | " RESET<< std::endl;
+	std::cout << std::right << std::setw(10) << "nickname" << " | " WHITE << std::endl;
 }
 
 void	PhoneBook::index_input(void)
@@ -46,7 +46,7 @@ void	PhoneBook::index_input(void)
 		std::getline(std::cin, arg, '\n');
 		if (!std::cin.eof() && (arg.empty() || arg.length() != 1))
 		{
-			std::cout << RED "Index out of range or not a number." RESET << std::endl;
+			std::cout << RED "Index out of range or not a number." WHITE << std::endl;
 			continue;
 		}
 		if (arg.empty())
@@ -55,7 +55,7 @@ void	PhoneBook::index_input(void)
 		if(!std::cin.eof() && index > 0 && index < 9)
 		{
 			if (this->pos_ == 0)
-				std::cout << RED "No contact at that index." RESET << std::endl;
+				std::cout << RED "No contact at that index." WHITE << std::endl;
 			else
 			{
 				this->contact[index - 1].showlines();
@@ -63,7 +63,7 @@ void	PhoneBook::index_input(void)
 			}
 		}
 		else if (!std::cin.eof())
-			std::cout << RED "Index out of range." RESET << std::endl;
+			std::cout << RED "Index out of range." WHITE << std::endl;
 	}
 }
 
@@ -89,7 +89,7 @@ std::string	force_input(std::string arg, std::string field)
 		std::getline(std::cin, arg,'\n');
 		if (arg.empty() && !std::cin.eof())
 			std::cout << RED << field << " cant be empty!" << std::endl
-				<< GREEN "Enter " << field << ": " RESET;
+				<< GREEN "Enter " << field << ": " WHITE;
 	}
 	return (arg);
 }
@@ -97,7 +97,7 @@ std::string	force_input(std::string arg, std::string field)
 std::string	print_msg(std::string arg, std::string field)
 {
 	if (!std::cin.eof())
-		std::cout << GREEN "Enter " << field << ": " RESET;
+		std::cout << GREEN "Enter " << field << ": " WHITE;
 	return (force_input(arg, field));
 }
 
@@ -111,6 +111,6 @@ void	PhoneBook::add_contact(void)
 	this->contact[pos_ % 8].set_phone_number(print_msg(arg, "phone number"));
 	this->contact[pos_ % 8].set_darkest_secret(print_msg(arg, "darkest secret"));
 	if (!std::cin.eof())
-		std::cout << GREEN "contact added!" RESET << std::endl;
+		std::cout << GREEN "contact added!" WHITE << std::endl;
 	pos_++;
 }

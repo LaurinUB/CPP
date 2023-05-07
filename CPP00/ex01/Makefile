@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 11:43:56 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/03 17:20:48 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/07 15:19:28 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ clean:
 	@rm -f $(OBJ)
 
 fclean:	clean
-	@echo "$(RED)rm -f $(OBJ)$(WHITE)"
+	@echo "$(RED)rm -f $(NAME)$(WHITE)"
 	@rm -f $(NAME)
 
 re: fclean all

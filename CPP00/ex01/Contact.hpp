@@ -6,14 +6,14 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:04 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 12:42:15 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:26:57 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#define RESET       "\033[0m"
+#define WHITE		 "\033[0m"
 #define YELLOW      "\033[33m"
 
 #include <iostream>

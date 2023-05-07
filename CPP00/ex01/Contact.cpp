@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:13:53 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/06 17:47:02 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:27:29 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Contact::show(size_t i)
 		std::cout << std::right << std::setw(10) << i << " | ";
 		std::cout << std::right << std::setw(10) << cut_length(this->first_name_) << " | ";
 		std::cout << std::right << std::setw(10) << cut_length(this->last_name_) << " | ";
-		std::cout << std::right << std::setw(10) << cut_length(this->nickname_) << " | " RESET << std::endl;
+		std::cout << std::right << std::setw(10) << cut_length(this->nickname_) << " | " WHITE << std::endl;
 	}
 }
 
@@ -56,7 +56,7 @@ void	Contact::showlines()
 	std::cout << "last name:	" << this->last_name_ << std::endl;
 	std::cout << "nickname:	" << this->nickname_ << std::endl;
 	std::cout << "phone number:	" << this->phone_number_ << std::endl;
-	std::cout << "darkest secret:	" << this->darkest_secret_  << RESET << std::endl;
+	std::cout << "darkest secret:	" << this->darkest_secret_  << WHITE << std::endl;
 }
 
 void	Contact::set_first_name(std::string arg)
