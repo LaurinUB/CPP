@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:02:45 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/08 16:04:09 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:20:01 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 Zombie	*zombieHorde(int N, std::string name)
 {
-	Zombie	*zombie;
+	Zombie	*zombie = new Zombie[N];
 
-	zombie = new Zombie;
 	while (N > 0)
-	{
-		zombie[N - 1] = Zombie(name);
-		N--;
-	}
+		zombie[--N].setName(name);
 
 	return (zombie);
 }

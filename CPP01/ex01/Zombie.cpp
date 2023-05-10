@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:20:26 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/08 13:54:14 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:17:52 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ Zombie::~Zombie(void)
 	return;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : name_(name)
 {
-	this->name_ = name;
 	return;
 }
 
 void	Zombie::announce(void)
 {
 	std::cout << this->name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->name_ = name;
 }

@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:19:32 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/08 14:02:03 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:17:24 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class	Zombie
 		Zombie(std::string name);
 
 		void	announce(void);
+		void	setName(std::string name);
 
 	private :
 
