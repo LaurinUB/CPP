@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 10:17:25 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/10 18:51:27 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/11 10:06:19 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,6 @@
 NAME			= Sed
 CC				= c++
 CPPFLAGS		= -std=c++98 -Wall -Wextra -Werror
-
-GREEN			= \033[0;32m
-CYAN			= \033[0;36m
-RED				= \033[0;31m
-WHITE			= \033[0m
 
 SRC				= main.cpp
 OBJ				= $(SRC:.cpp=.o)
@@ -33,8 +28,11 @@ $(NAME): $(OBJ)
 	@echo "$(CYAN)Compiling$(WHITE): $<"
 	@$(CC) $(CPPFLAGS) -c -o $@ $<
 
-run:	all
-	@./$(NAME)
+test:
+	./$(NAME) test.txt it at
+
+test2:
+	./$(NAME) test2.txt words rhymes
 
 clean:
 	@echo "$(RED)rm -f $(OBJ)$(WHITE)"
