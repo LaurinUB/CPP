@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:51:46 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/11 09:56:01 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:59:40 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	better_sed(std::string filename, std::string s1, std::string s2)
 	std::ofstream	replace;
 
 	file.open(filename);
-	replace.open(filename + ".replace");
-	if (file.is_open() && replace.is_open())
+	if (file.is_open())
 	{
+		replace.open(filename + ".replace");
 		while (std::getline(file, buff, '\n'))
 			replace << replace_string(buff, s1, s2) << std::endl;
 	}
