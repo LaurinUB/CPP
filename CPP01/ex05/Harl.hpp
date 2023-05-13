@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 08:43:16 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/12 11:05:12 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/13 13:17:56 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define HARL_H
 
 #include <iostream>
+
+#define WHITE		"\033[0m"
+#define RED         "\033[31m"
+#define GREEN		"\033[32m"
 
 class Harl
 {
@@ -31,6 +35,7 @@ class Harl
 		void	error(void);
 	
 		void (Harl::*functions_[4])();	
+		std::string	levels_[4];
 };
 
 #endif
