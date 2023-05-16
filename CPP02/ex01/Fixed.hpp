@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:32:11 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/16 20:23:52 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:06:54 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class Fixed
 		Fixed(const int value);
 		Fixed(const float value);
 		~Fixed(void);
-		Fixed(Fixed const & fix);
-		Fixed & operator = (Fixed const & fix);
+		Fixed(const Fixed & fix);
+		Fixed & operator = (const Fixed & fix);
 
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		void	setRawBits(const int raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
@@ -37,6 +37,6 @@ class Fixed
 		static const int literal_ = 8;
 };
 
-std::ostream & operator << (std::ostream & out, Fixed const & fix);
+std::ostream & operator << (std::ostream & out, const Fixed & fix);
 
 #endif

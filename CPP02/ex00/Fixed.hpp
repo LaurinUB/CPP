@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:32:11 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:17:03 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:04:34 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,16 @@ class Fixed
 
 		Fixed(void);
 		~Fixed(void);
-		Fixed(Fixed const & fix);
-		Fixed & operator = (Fixed const & fix);
+		Fixed(const Fixed & fix);
+		Fixed & operator = (const Fixed & fix);
 
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		void	setRawBits(const int raw);
 
 	private:
 
 		int	fixed_point_number_;
 		static const int literal_ = 8;
 };
-
-std::ostream & operator << (std::ostream & o, Fixed const & f);
 
 #endif
