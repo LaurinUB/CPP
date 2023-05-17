@@ -16,6 +16,7 @@ Sed
 Harl
 harlFilter
 fixed
+bsp
 
 # Precompiled Headers
 *.gch

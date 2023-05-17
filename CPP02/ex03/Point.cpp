@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:55:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/17 11:20:03 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:41:12 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ Point::Point(const Point& pt) {
 }
 
 Point& Point::operator = (const Point& pt) {
-	if (this != &pt) {
-		*const_cast<Fixed*>(&this->x_) = pt.x_;
-		*const_cast<Fixed*>(&this->y_) = pt.y_;
-	}
+	static_cast<void>(pt);
 	return (*this);
 }
 
