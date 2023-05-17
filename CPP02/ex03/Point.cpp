@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:55:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/17 14:11:44 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:04:58 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,11 @@ Point::Point(const Point& pt) {
 	*this = pt;
 }
 
-// Point& Point::operator = (const Point& pt) {
-// 	if (this != &pt) {
-// 		*const_cast<Fixed*>(&this->x_) = pt.x_;
-// 		*const_cast<Fixed*>(&this->y_) = pt.y_;
-// 	}
-// 	return (*this);
-// }
-
 Point& Point::operator = (const Point& pt) {
-	static_cast<void>(pt);
-	std::cout << "const values are not assignable!" << std::endl;
+	if (this != &pt) {
+		*const_cast<Fixed*>(&this->x_) = pt.x_;
+		*const_cast<Fixed*>(&this->y_) = pt.y_;
+	}
 	return (*this);
 }
 
