@@ -6,13 +6,13 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 18:24:02 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/13 18:25:48 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/17 14:58:10 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= fixed
-CC				= c++
-CPPFLAGS		= -std=c++98 -Wall -Wextra -Werror
+CXX				= c++
+CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
 GREEN			= \033[0;32m
 CYAN			= \033[0;36m
@@ -25,12 +25,12 @@ OBJ				= $(SRC:.cpp=.o)
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Compiled successfully$(WHITE)"
 
 %.o:	%.cpp
 	@echo "$(CYAN)Compiling$(WHITE): $<"
-	@$(CC) $(CPPFLAGS) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 run:	all
 	@./$(NAME)
