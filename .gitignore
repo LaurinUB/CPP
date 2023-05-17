@@ -18,6 +18,7 @@ harlFilter
 fixed
 bsp
 ClapTrap
+ScavTrap
 
 # Precompiled Headers
 *.gch
