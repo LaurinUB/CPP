@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 19:34:37 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/17 21:27:22 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/18 12:01:13 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CYAN			= \033[0;36m
 RED				= \033[0;31m
 WHITE			= \033[0m
 
-SRC				= ClapTrap.cpp main.cpp
+SRC				= ClapTrap.cpp ScavTrap.cpp main.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
