@@ -19,6 +19,8 @@ fixed
 bsp
 ClapTrap
 ScavTrap
+FragTrap
+DiamondTrap
 
 # Precompiled Headers
 *.gch
