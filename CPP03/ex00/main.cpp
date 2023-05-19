@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-int	main(void) {
+int main(void) {
   ClapTrap clap = ClapTrap("clap");
 
   clap.attack("notClap");
