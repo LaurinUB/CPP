@@ -17,9 +17,10 @@ ClapTrap::ClapTrap(const std::string name)
 ClapTrap::ClapTrap(const ClapTrap& rhs) {
   *this = rhs;
 }
- 
+
 ClapTrap::~ClapTrap(void) {
-  std::cout << "ClapTrap destuctor called for: " GREEN << this->name_ << WHITE << std::endl << std::endl;
+  std::cout << "ClapTrap destuctor called for: " GREEN;
+  std::cout << this->name_ << WHITE << std::endl << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
@@ -34,36 +35,49 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
 
 void    ClapTrap::attack(const std::string& target) {
   if (this->energy_points_ <= 0 || this->hit_points_ <= 0) {
-    std::cout << "ClapTrap " GREEN  << this->name_ << WHITE " has no energy to attack!" << std::endl << std::endl;
+    std::cout << "ClapTrap " GREEN  << this->name_;
+    std::cout << WHITE " has no energy to attack!" << std::endl << std::endl;
   } else {
-    std::cout << "ClapTrap " GREEN << this->name_ << WHITE " attacks " << target;
-    std::cout << ", causing " << this->attack_damage_ << " points of damage!" << std::endl;
+    std::cout << "ClapTrap " GREEN << this->name_;
+    std::cout << WHITE " attacks " << target;
+    std::cout << ", causing " << this->attack_damage_;
+    std::cout << " points of damage!" << std::endl;
 
     this->energy_points_--;
-    std::cout << GREEN << this->name_ << WHITE " has " << this->energy_points_ << " energy poinst left." << std::endl << std::endl;
+    std::cout << GREEN << this->name_ << WHITE " has ";
+    std::cout << this->energy_points_ << " energy poinst left.";
+    std::cout << std::endl << std::endl;
   }
 }
 
 void    ClapTrap::takeDamage(unsigned int amount) {
-  std::cout << "ClapTrap " GREEN << this->name_ << WHITE " takes " << amount << " damage!" << std::endl;
+  std::cout << "ClapTrap " GREEN << this->name_ << WHITE " takes ";
+  std::cout << amount << " damage!" << std::endl;
   this->hit_points_ -= amount;
 
   if (this->hit_points_ <= 0) {
-    std::cout << "ClapTrap " GREEN << this->name_ << WHITE " has no hit_points_ left!" << std::endl << std::endl;
+    std::cout << "ClapTrap " GREEN << this->name_;
+    std::cout << WHITE " has no hit_points_ left!" << std::endl << std::endl;
   } else {
-    std::cout << GREEN << this->name_ << WHITE " has " << this->hit_points_<< " hit_points left." << std::endl << std::endl;
+    std::cout << GREEN << this->name_ << WHITE " has ";
+    std::cout << this->hit_points_<< " hit_points left.";
+    std::cout << std::endl << std::endl;
   }
 }
 
 void    ClapTrap::beRepaired(unsigned int amount) {
   if (this->energy_points_ <= 0 || this->hit_points_ <= 0) {
-    std::cout << "ClapTrap " GREEN  << this->name_ << WHITE " has no energy to to repair!" << std::endl << std::endl;
+    std::cout << "ClapTrap " GREEN  << this->name_ << WHITE;
+    std::cout << " has no energy to to repair!" << std::endl << std::endl;
   } else {
-  std::cout << "ClapTrap " GREEN << this->name_ << WHITE " repairs for " << amount << std::endl;
+  std::cout << "ClapTrap " GREEN << this->name_;
+  std::cout << WHITE " repairs for " << amount << std::endl;
 
   this->hit_points_ += amount;
   this->energy_points_--;
-  std::cout << GREEN << this->name_ << WHITE " has " << this->hit_points_<< " hit_points now." << std::endl;
-  std::cout << GREEN << this->name_ << WHITE " has " << this->energy_points_ << " energy poinst left." << std::endl << std::endl;
+  std::cout << GREEN << this->name_ << WHITE " has " << this->hit_points_;
+  std::cout << " hit_points now." << std::endl;
+  std::cout << GREEN << this->name_ << WHITE " has " << this->energy_points_;
+  std::cout << " energy poinst left." << std::endl << std::endl;
   }
 }
