@@ -5,5 +5,10 @@ int main(void) {
 
   diamond.whoAmI();
   diamond.attack("notDiamond");
+  diamond.beRepaired(10);
+  diamond.takeDamage(10);
+  diamond.guardGate();
+  diamond.highFiveGuys();
+
   return 0;
 }

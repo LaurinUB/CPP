@@ -12,6 +12,7 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(const std::string name)
     : ClapTrap(name), ScavTrap(name), FragTrap(name) {
   ClapTrap::name_ = ClapTrap::name_ + "_clap_trap";
+  this->name_ = name;
   this->hit_points_ = FragTrap::hit_points_;
   this->energy_points_ = ScavTrap::energy_points_;
   this->attack_damage_ = FragTrap::attack_damage_;
@@ -42,6 +43,7 @@ DiamondTrap&  DiamondTrap::operator=(const DiamondTrap& rhs) {
 }
 
 void  DiamondTrap::whoAmI(void) {
-  std::cout << this->name_ << std::endl << ClapTrap::name_;
-  std::cout << std::endl << std::endl;
+  std::cout << "My name is " GREEN << this->name_ << std::endl;
+  std::cout << WHITE "And my clap name is " GREEN << ClapTrap::name_;
+  std::cout << WHITE << std::endl << std::endl;
 }
