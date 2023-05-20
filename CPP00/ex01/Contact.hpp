@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:16:04 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/20 13:03:51 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/20 13:33:05 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,4 @@ class Contact {
   std::string darkest_secret_;
 };
 
-#endif
+#endif  // CONTACT_HPP_
