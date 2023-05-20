@@ -26,10 +26,14 @@ DiamondTrap::DiamondTrap(const std::string name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& rhs) : ClapTrap(rhs) {
+  std::cout << "DiamondTrap copy constructor called for: " GREEN;
+  std::cout << this->name_ << WHITE << std::endl << std::endl;
   *this = rhs;
 }
 
 DiamondTrap::~DiamondTrap() {
+  std::cout << "DiamondTrap destuctor called for: " GREEN;
+  std::cout << this->name_ << WHITE << std::endl << std::endl;
   return;
 }
 

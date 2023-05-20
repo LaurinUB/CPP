@@ -15,6 +15,8 @@ ClapTrap::ClapTrap(const std::string name)
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs) {
+  std::cout << "ClapTrap copy constructor called for: " GREEN;
+  std::cout << this->name_ << WHITE << std::endl << std::endl;
   *this = rhs;
 }
 

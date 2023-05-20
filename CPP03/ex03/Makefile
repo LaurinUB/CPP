@@ -6,11 +6,11 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 19:34:37 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/19 11:47:33 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/20 10:34:29 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= FragTrap
+NAME			= DiamondTrap
 CXX				= c++
 CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
