@@ -13,7 +13,7 @@ class FragTrap : virtual public ClapTrap {
   ~FragTrap(void);
   FragTrap& operator=(const FragTrap &rhs);
 
-    void  highFiveGuys(void);
+  void  highFiveGuys(void);
 };
 
 #endif  // FRAGTRAP_HPP_
