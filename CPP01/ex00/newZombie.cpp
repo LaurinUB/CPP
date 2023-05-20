@@ -6,13 +6,12 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:21:14 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/08 13:34:20 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/20 13:13:30 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie(std::string name)
-{
-	return (new Zombie(name));
+Zombie  *newZombie(std::string name) {
+  return (new Zombie(name));
 }
