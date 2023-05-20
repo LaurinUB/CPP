@@ -6,12 +6,12 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:15:46 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/20 12:50:30 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/20 13:33:30 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP_
+#define PHONEBOOK_HPP_
 
 #include "Contact.hpp"
 
@@ -36,4 +36,4 @@ class PhoneBook {
   size_t  pos_;
 };
 
-#endif
+#endif  // PHONEBOOK_HPP_
