@@ -21,6 +21,7 @@ ClapTrap
 ScavTrap
 FragTrap
 DiamondTrap
+animal
 
 # Precompiled Headers
 *.gch
