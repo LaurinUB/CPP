@@ -23,6 +23,8 @@ FragTrap
 DiamondTrap
 animal
 
+build/
+
 # Precompiled Headers
 *.gch
 *.pch
