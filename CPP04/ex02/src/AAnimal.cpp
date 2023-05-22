@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:12 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:13 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:20:42 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,4 @@ Animal&  Animal::operator=(const Animal& rhs) {
 
 std::string Animal::getType(void) const {
   return this->type_;
-}
-
-void  Animal::makeSound(void) const {
-  std::cout << "not an animal" << std::endl << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 09:48:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:05:47 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:20:31 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,17 @@
 #include "../include/WrongCat.hpp"
 
 void  print(void) {
-  Dog* test = new Dog();
-  Dog* test1 = new Dog(*test);
-  Dog* test2 = test1;
-  Animal *animals[10];
+  const Animal* dog = new Dog();
+  const Animal* cat = new Cat();
+  // const Animal* animal = new Animal();
 
-  std::cout << "test brain:\t" << test->getBrain() << std::endl;
-  std::cout << "test1 brain:\t" << test1->getBrain() << std::endl;
-  std::cout << "test2 brain:\t" << test2->getBrain() << std::endl << std::endl;
-  delete test;
-  delete test1;
+  std::cout << dog->getType() << " " << std::endl;
+  dog->makeSound();  // will output the cat sound!
+  std::cout << cat->getType() << " " << std::endl;
+  cat->makeSound();
 
-  for (int i = 0; i < 5; ++i) {
-    animals[i] = new Dog();
-  }
-  for (int j = 5; j < 10; ++j) {
-    animals[j] = new Cat();
-  }
-  for (int k = 0; k < 10; ++k) {
-    std::cout << GREEN << animals[k]->getType() << WHITE << std::endl;
-    animals[k]->makeSound();
-  }
-  for (int i = 0; i < 10; ++i) {
-    delete animals[i];
-  }
+  delete dog;
+  delete cat;
 }
 
 int main(void) {

@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:55:29 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 16:56:10 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:19:02 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 
 class Animal {
  public:
-  Animal(void);
   Animal(std::string type);
   Animal(const Animal &rhs);
   virtual ~Animal(void);
   Animal& operator=(const Animal &rhs);
 
-  std::string getType(void) const;
-  virtual void  makeSound(void) const;
+  virtual std::string getType(void) const;
+  virtual void  makeSound(void) const = 0;
 
  protected:
+  Animal(void);
   std::string type_;
 };
 
