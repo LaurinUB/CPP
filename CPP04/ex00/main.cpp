@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 09:48:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 11:31:33 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:10:53 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-int main(void) {
+void print(void) {
   const Animal* meta = new Animal();
   const Animal* j = new Dog();
   const Animal* i = new Cat();
@@ -39,5 +39,10 @@ int main(void) {
 
   delete m;
   delete c;
+}
+
+int main(void) {
+  print();
+  // system("leaks animal");
   return 0;
 }
