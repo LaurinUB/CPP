@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 17:16:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:52 by luntiet-         ###   ########.fr       */
+/*   Created: 2023/05/22 17:16:05 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/22 17:16:06 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP_
-#define DOG_HPP_
+#include "../include/WrongCat.hpp"
 
-#include <string>
-#include <iostream>
-#include "Animal.hpp"
+WrongCat::WrongCat(void) {
+  this->type_ = "WrongCat";
+}
 
-class Dog : public Animal {
- public:
-  Dog(void);
-  Dog(const Dog &rhs);
-  ~Dog(void);
-  Dog& operator=(const Dog &rhs);
+WrongCat::WrongCat(const WrongCat& rhs) {
+  *this = rhs;
+}
 
-  void  makeSound(void) const;
-};
+WrongCat::~WrongCat() {}
 
-#endif  // DOG_HPP_
+WrongCat&  WrongCat::operator=(const WrongCat& rhs) {
+  this->type_ = rhs.type_;
+  return *this;
+}
+
+void  WrongCat::makeSound(void) const {
+  std::cout << "Wuff" << std::endl << std::endl;
+}

@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 17:16:28 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:28 by luntiet-         ###   ########.fr       */
+/*   Created: 2023/05/22 17:18:22 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/22 17:18:23 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../include/WrongAnimal.hpp"
 
-Animal::Animal(void) : type_("default") {}
+WrongAnimal::WrongAnimal(void) : type_("WrongDefault") {}
 
-Animal::Animal(std::string type) : type_(type) {}
-
-Animal::Animal(const Animal& rhs) {
+WrongAnimal::WrongAnimal(const WrongAnimal& rhs) {
   *this = rhs;
 }
 
-Animal::~Animal() {}
+WrongAnimal::~WrongAnimal() {}
 
-Animal&  Animal::operator=(const Animal& rhs) {
+WrongAnimal&  WrongAnimal::operator=(const WrongAnimal& rhs) {
   this->type_ = rhs.type_;
   return *this;
 }
 
-std::string Animal::getType(void) const {
+std::string WrongAnimal::getType(void) const {
   return this->type_;
 }
 
-void  Animal::makeSound(void) const {
-  std::cout << "calling Animal::makeSound()" << std::endl;
-  std::cout << "not an animal" << std::endl << std::endl;
+void  WrongAnimal::makeSound(void) const {
+  std::cout << "no sound for default" << std::endl << std::endl;
 }
