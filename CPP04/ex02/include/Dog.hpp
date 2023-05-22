@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 17:16:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:52 by luntiet-         ###   ########.fr       */
+/*   Created: 2023/05/22 17:18:38 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/22 17:18:39 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
  public:
@@ -25,6 +26,10 @@ class Dog : public Animal {
   Dog& operator=(const Dog &rhs);
 
   void  makeSound(void) const;
+  Brain*  getBrain(void);
+
+ private:
+  Brain* brain_;
 };
 
 #endif  // DOG_HPP_

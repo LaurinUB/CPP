@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 17:16:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:52 by luntiet-         ###   ########.fr       */
+/*   Created: 2023/05/22 16:55:29 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/22 16:56:10 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP_
-#define DOG_HPP_
+#ifndef ANIMAL_HPP_
+#define ANIMAL_HPP_
 
-#include <string>
 #include <iostream>
-#include "Animal.hpp"
+#include <string>
 
-class Dog : public Animal {
+#define WHITE       "\033[0m"
+#define GREEN       "\033[32m"
+
+class Animal {
  public:
-  Dog(void);
-  Dog(const Dog &rhs);
-  ~Dog(void);
-  Dog& operator=(const Dog &rhs);
+  Animal(void);
+  Animal(std::string type);
+  Animal(const Animal &rhs);
+  virtual ~Animal(void);
+  Animal& operator=(const Animal &rhs);
 
-  void  makeSound(void) const;
+  std::string getType(void) const;
+  virtual void  makeSound(void) const;
+
+ protected:
+  std::string type_;
 };
 
-#endif  // DOG_HPP_
+#endif  // ANIMAL_HPP_

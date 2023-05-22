@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 17:16:52 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:52 by luntiet-         ###   ########.fr       */
+/*   Created: 2023/05/22 17:16:16 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/22 17:16:18 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP_
-#define DOG_HPP_
+#include "../include/Brain.hpp"
 
-#include <string>
-#include <iostream>
-#include "Animal.hpp"
+Brain::Brain(void) {}
 
-class Dog : public Animal {
- public:
-  Dog(void);
-  Dog(const Dog &rhs);
-  ~Dog(void);
-  Dog& operator=(const Dog &rhs);
+Brain::Brain(const Brain& rhs) {
+  *this = rhs;
+}
 
-  void  makeSound(void) const;
-};
+Brain::~Brain() {}
 
-#endif  // DOG_HPP_
+Brain&  Brain::operator=(const Brain& rhs) {
+  for (int i = 0; i < 100; ++i) {
+    this->ideas[i] = rhs.ideas[i];
+  }
+  return *this;
+}
