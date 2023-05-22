@@ -2,8 +2,6 @@
 
 Animal::Animal(void) : type_("default") {}
 
-Animal::Animal(std::string type) : type_(type) {}
-
 Animal::Animal(const Animal& rhs) {
   *this = rhs;
 }

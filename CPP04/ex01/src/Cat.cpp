@@ -6,7 +6,8 @@ Cat::Cat(void) {
 }
 
 Cat::Cat(const Cat& rhs) {
-  *this = rhs;
+  this->type_ = rhs.type_;
+  this->brain_ = new Brain(*rhs.brain_);
 }
 
 Cat::~Cat() {
@@ -17,6 +18,7 @@ Cat::~Cat() {
 
 Cat&  Cat::operator=(const Cat& rhs) {
   this->type_ = rhs.type_;
+  this->brain_ = rhs.brain_;
   return *this;
 }
 
