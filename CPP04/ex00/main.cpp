@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 09:48:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 10:45:56 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/22 11:31:33 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,12 @@ int main(void) {
   m->makeSound();
   std::cout << c->getType() << " " << std::endl;
   c->makeSound();
+
+  delete meta;
+  delete j;
+  delete i;
+
+  delete m;
+  delete c;
   return 0;
 }
