@@ -16,5 +16,6 @@ Cat&  Cat::operator=(const Cat& rhs) {
 }
 
 void  Cat::makeSound(void) const {
+  std::cout << "calling Cat::makeSound()" << std::endl;
   std::cout << "Meow" << std::endl << std::endl;
 }

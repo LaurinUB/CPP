@@ -18,5 +18,6 @@ std::string WrongAnimal::getType(void) const {
 }
 
 void  WrongAnimal::makeSound(void) const {
+  std::cout << "calling WrongAnimal::makeSound()" << std::endl;
   std::cout << "no sound for default" << std::endl << std::endl;
 }
