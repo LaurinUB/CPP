@@ -1,4 +1,5 @@
 #include "../include/Character.hpp"
+#include "../include/AMateria.hpp"
 
 Character::Character(void) {
   for (int i = 0; i < 4; ++i) {
@@ -33,7 +34,10 @@ Character::Character(const std::string name) {
   this->name_ = name;
 }
 
-void  Character::use(int idx, Character &target) {
+std::string const & Character::getName(void) const {
+  return this->name_;
+}
+void  Character::use(int idx, ICharacter &target) {
   if (idx < 4 && idx > 0 && this->inventory_[idx]) {
     this->inventory_[idx]->use(target);
   }
