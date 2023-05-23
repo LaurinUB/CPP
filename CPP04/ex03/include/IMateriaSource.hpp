@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 21:13:41 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/23 21:21:08 by luntiet-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef IMATERIASOURCE_HPP_
 #define IMATERIASOURCE_HPP_
 
 #include <iostream>
 #include <string>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class IMateriaSource {
  public:

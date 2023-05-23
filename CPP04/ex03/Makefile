@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 19:34:37 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/22 20:29:36 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/23 20:59:36 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ WHITE			= \033[0m
 SRC_DIR 		= src/
 OBJ_DIR			= build/
 
-SRC_FILES		= main.cpp AMateria.cpp Ice.cpp
+SRC_FILES		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 SRC				= $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ				= $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 

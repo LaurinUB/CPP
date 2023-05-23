@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 20:46:33 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/23 21:24:22 by luntiet-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ICHARACTER_HPP_
 #define ICHARACTER_HPP_
 
 #include <iostream>
 #include <string>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter {
  public:
