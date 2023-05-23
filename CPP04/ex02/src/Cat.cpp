@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:00 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:20:38 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:00:18 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat::~Cat() {
 
 Cat&  Cat::operator=(const Cat& rhs) {
   this->type_ = rhs.type_;
-  this->brain_ = rhs.brain_;
+  *(this->brain_) = *(rhs.brain_);
   return *this;
 }
 

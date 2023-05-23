@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 09:48:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:20:31 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:06:22 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 #include "../include/WrongCat.hpp"
 
 void  print(void) {
-  const Animal* dog = new Dog();
-  const Animal* cat = new Cat();
+  Animal* dog = new Dog();
+  Animal* cat = new Cat();
+  Animal* ccat = new Cat();
   // const Animal* animal = new Animal();
+  *ccat = *dog;
 
   std::cout << dog->getType() << " " << std::endl;
   dog->makeSound();  // will output the cat sound!
   std::cout << cat->getType() << " " << std::endl;
   cat->makeSound();
+  std::cout << ccat->getType() << " " << std::endl;
+  ccat->makeSound();
 
   delete dog;
   delete cat;
+  delete ccat;
 }
 
 int main(void) {
