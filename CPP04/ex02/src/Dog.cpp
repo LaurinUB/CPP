@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:53:13 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:20:33 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:03:36 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Brain*  Dog::getBrain(void) {
 }
 Dog&  Dog::operator=(const Dog& rhs) {
   this->type_ = rhs.type_;
-  this->brain_ = rhs.brain_;
+  *(this->brain_) = *(rhs.brain_);
   return *this;
 }
 
