@@ -6,13 +6,11 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:27:26 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 09:13:36 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:25:00 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/IMateriaSource.hpp"
 #include "../include/MateriaSource.hpp"
-#include "../include/ICharacter.hpp"
 #include "../include/Character.hpp"
 #include "../include/AMateria.hpp"
 #include "../include/Cure.hpp"
@@ -31,13 +29,17 @@ void print() {
   ICharacter* bob = new Character("bob");
   me->use(0, *bob);
   me->use(1, *bob);
-  delete bob;
+  *bob = *me;
+  bob->use(0, *me);
+  bob->use(1, *me);
+
   delete me;
+  delete bob;
   delete src;
 }
 
 int main() {
   print();
-  // system("leaks test");
+  system("leaks test");
   return 0;
 }
