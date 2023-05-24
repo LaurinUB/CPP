@@ -6,11 +6,11 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:18:22 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:54:01 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:48:31 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongAnimal.hpp"
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(void) : type_("WrongDefault") {
   std::cout << "Wrong animal constructor called" << std::endl;
