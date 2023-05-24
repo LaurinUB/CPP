@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:16:03 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:58:33 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:27:22 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void  MateriaSource::learnMateria(AMateria* type) {
     }
   }
   std::cout << "No space to learn " << type->getType() << std::endl;
-  delete type;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type) {

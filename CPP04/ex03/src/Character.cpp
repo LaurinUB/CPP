@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:17:12 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:58:36 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:33:32 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void  Character::equip(AMateria* m) {
     }
   }
   std::cout << "no space in inventory!" << std::endl;
-  delete m;
 }
 
 AMateria* Character::getMateria(int idx) {
