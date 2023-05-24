@@ -6,13 +6,15 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:18:11 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:18:12 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:05:24 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Animal.hpp"
 
-Animal::Animal(void) : type_("default") {}
+Animal::Animal(void) : type_("default") {
+  std::cout << "Animal constructor called" << std::endl;
+}
 
 Animal::Animal(const Animal& rhs) {
   *this = rhs;
