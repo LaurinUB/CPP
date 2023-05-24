@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:17:12 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 09:17:13 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:26:11 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../include/AMateria.hpp"
 
 Character::Character(void) {
+  this->name_ = "default";
   for (int i = 0; i < 4; ++i) {
     this->inventory_[i] = nullptr;
   }
@@ -44,6 +45,9 @@ Character&  Character::operator=(const Character& rhs) {
 
 Character::Character(const std::string name) {
   this->name_ = name;
+  for (int i = 0; i < 4; ++i) {
+    this->inventory_[i] = nullptr;
+  }
 }
 
 std::string const & Character::getName(void) const {
