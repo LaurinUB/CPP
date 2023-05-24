@@ -6,18 +6,19 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:53:13 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/23 10:07:34 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:04:49 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
 
 Dog::Dog(void) {
+  std::cout << "Dog constructor called" << std::endl;
   this->type_ = "Dog";
   this->brain_ = new Brain();
 }
 
-Dog::Dog(const Dog& rhs) {
+Dog::Dog(const Dog& rhs) : Animal(rhs) {
   this->type_ = rhs.type_;
   this->brain_ = new Brain(*rhs.brain_);
 }
