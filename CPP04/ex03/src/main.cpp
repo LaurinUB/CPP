@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:27:26 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 14:20:52 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:33:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "../include/Ice.hpp"
 
 void print() {
+  Ice* ice = new Ice();
+  Cure* cure = new Cure();
   IMateriaSource* src = new MateriaSource();
   std::cout << "learn Materia ice" << std::endl;
   src->learnMateria(new Ice());
@@ -27,9 +29,9 @@ void print() {
   std::cout << "learn Materia cure" << std::endl;
   src->learnMateria(new Cure());
   std::cout << "trying learning Materia ice" << std::endl;
-  src->learnMateria(new Ice());
+  src->learnMateria(ice);
   std::cout << "trying learning Materia cure" << std::endl;
-  src->learnMateria(new Cure());
+  src->learnMateria(cure);
   ICharacter* me = new Character("me");
   AMateria* tmp;
   std::cout << "equping Materia ice" << std::endl;
@@ -45,9 +47,10 @@ void print() {
   tmp = src->createMateria("ice");
   me->equip(tmp);
   std::cout << "equping Materia with full inventory" << std::endl;
-
-  tmp = src->createMateria("ice");
-  me->equip(tmp);
+  AMateria* tmp1;
+  tmp1 = src->createMateria("ice");
+  me->equip(tmp1);
+  delete tmp1;
   ICharacter* bob = new Character("bob");
   std::cout << std::endl;
 
@@ -83,6 +86,8 @@ void print() {
   delete me;
   delete bob;
   delete src;
+  delete ice;
+  delete cure;
 }
 
 int main() {
