@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:28 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:38 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:08:59 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 Animal::Animal(void) : type_("default") {
   std::cout << "Animal constructor called" << std::endl;
 }
-
-Animal::Animal(std::string type) : type_(type) {}
 
 Animal::Animal(const Animal& rhs) {
   *this = rhs;

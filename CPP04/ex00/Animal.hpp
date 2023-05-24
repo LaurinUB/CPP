@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:32 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:16:33 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:08:36 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Animal {
  public:
   Animal(void);
-  Animal(std::string type);
   Animal(const Animal &rhs);
   virtual ~Animal(void);
   Animal& operator=(const Animal &rhs);
