@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:27:13 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:28:11 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:48:15 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ AMateria::AMateria(const AMateria& rhs) {
 AMateria::~AMateria() {}
 
 AMateria& AMateria::operator=(const AMateria &rhs) {
-  static_cast<void>(rhs);
+  if (this != &rhs) {
+    *this = rhs;
+  }
   return *this;
 }
 
