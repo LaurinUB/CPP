@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 09:16:03 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/24 09:16:36 by luntiet-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/MateriaSource.hpp"
 #include "../include/AMateria.hpp"
 
@@ -32,7 +44,7 @@ MateriaSource&  MateriaSource::operator=(const MateriaSource& rhs) {
 void  MateriaSource::learnMateria(AMateria* type) {
   for (int i = 0; i < 4; ++i) {
     if (!this->source_[i]) {
-      this->source_[i] = type->clone();
+      this->source_[i] = type;
       break;
     }
   }
