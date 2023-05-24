@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:25:31 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 09:25:16 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:37:39 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Ice::Ice(const Ice& rhs) {
 Ice::~Ice() {}
 
 Ice&  Ice::operator=(const Ice& rhs) {
-  static_cast<void>(rhs);
+  this->type_ = rhs.type_;
   return *this;
 }
 

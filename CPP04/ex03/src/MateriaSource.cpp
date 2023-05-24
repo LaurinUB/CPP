@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:16:03 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 09:16:36 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:14:19 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 MateriaSource::MateriaSource(void) {
   for (int i = 0; i < 4; ++i) {
-    this->source_[i] = nullptr;
+    this->source_[i] = NULL;
   }
 }
 
 MateriaSource::MateriaSource(const MateriaSource& rhs) {
+  for (int i = 0; i < 4; ++i) {
+    if (rhs.source_[i]) {
+      this->source_[i] = rhs.source_[i]->clone();
+    } else {
+      this->source_[i] = NULL;
+    }
+  }
   *this = rhs;
 }
 
@@ -32,11 +39,17 @@ MateriaSource::~MateriaSource() {
 }
 
 MateriaSource&  MateriaSource::operator=(const MateriaSource& rhs) {
+  std::cout << "MateriaSource assignment operator" << std::endl;
   for (int i = 0; i < 4; ++i) {
     if (this->source_[i]) {
       delete this->source_[i];
+      this->source_[i] = NULL;
     }
-    this->source_[i] = rhs.source_[i];
+    if (rhs.source_[i]) {
+      this->source_[i] = rhs.source_[i]->clone();
+    } else {
+      this->source_[i] = NULL;
+    }
   }
   return *this;
 }
@@ -45,9 +58,10 @@ void  MateriaSource::learnMateria(AMateria* type) {
   for (int i = 0; i < 4; ++i) {
     if (!this->source_[i]) {
       this->source_[i] = type;
-      break;
+      return;
     }
   }
+  std::cout << "No space to learn " << type->getType() << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type) {
@@ -56,5 +70,6 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
       return this->source_[i]->clone();
     }
   }
-  return nullptr;
+  std::cout << "No materia named " << type << std::endl;
+  return NULL;
 }

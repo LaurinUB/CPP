@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:17:12 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 09:26:11 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:42:33 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@
 Character::Character(void) {
   this->name_ = "default";
   for (int i = 0; i < 4; ++i) {
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = NULL;
   }
 }
 
 Character::Character(const Character& rhs) {
-  *this = rhs;
+  this->name_ = rhs.name_;
+  for (int i = 0; i < 4; ++i) {
+    if (rhs.inventory_[i]) {
+      this->inventory_[i] = rhs.inventory_[i]->clone();
+    } else {
+      this->inventory_[i] = NULL;
+    }
+  }
 }
 
 Character::~Character() {
@@ -37,8 +44,13 @@ Character&  Character::operator=(const Character& rhs) {
   for (int i = 0; i < 4; ++i) {
     if (this->inventory_[i]) {
       delete this->inventory_[i];
+      this->inventory_[i] = NULL;
     }
-    this->inventory_[i] = rhs.inventory_[i]->clone();
+    if (rhs.inventory_[i]) {
+      this->inventory_[i] = rhs.inventory_[i]->clone();
+    } else {
+      this->inventory_[i] = NULL;
+    }
   }
   return *this;
 }
@@ -46,7 +58,7 @@ Character&  Character::operator=(const Character& rhs) {
 Character::Character(const std::string name) {
   this->name_ = name;
   for (int i = 0; i < 4; ++i) {
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = NULL;
   }
 }
 
@@ -70,6 +82,6 @@ void  Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
   if (idx < 4 && idx >= 0) {
-    this->inventory_[idx] = nullptr;
+    this->inventory_[idx] = NULL;
   }
 }
