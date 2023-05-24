@@ -6,18 +6,19 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:00 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/23 10:00:18 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:14:52 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Cat.hpp"
 
 Cat::Cat(void) {
+  std::cout << "Cat constructor called" << std::endl;
   this->type_ = "Cat";
   this->brain_ = new Brain();
 }
 
-Cat::Cat(const Cat& rhs) {
+Cat::Cat(const Cat& rhs) : Animal(rhs) {
   this->type_ = rhs.type_;
   this->brain_ = new Brain(*rhs.brain_);
 }
