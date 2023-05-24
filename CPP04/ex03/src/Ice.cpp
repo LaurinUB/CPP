@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:25:31 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 13:54:53 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:29:38 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Ice::Ice(void) : AMateria("ice") {}
 
-Ice::Ice(const Ice& rhs) {
+Ice::Ice(const Ice& rhs) : AMateria(rhs) {
   *this = rhs;
 }
 
