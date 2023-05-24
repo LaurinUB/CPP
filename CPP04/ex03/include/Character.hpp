@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 20:49:58 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:39:55 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:10:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Character : public ICharacter {
   void  use(int idx, ICharacter &target);
   void  equip(AMateria* m);
   void  unequip(int idx);
+  AMateria* getMateria(int idx);
 
  private:
   std::string name_;

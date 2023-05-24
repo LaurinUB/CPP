@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 20:46:33 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:39:47 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:27:50 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ICharacter {
   virtual void equip(AMateria* m) = 0;
   virtual void unequip(int idx) = 0;
   virtual void use(int idx, ICharacter& target) = 0;
+  virtual AMateria* getMateria(int idx) = 0;
 };
 
 #endif  // ICHARACTER_HPP_
