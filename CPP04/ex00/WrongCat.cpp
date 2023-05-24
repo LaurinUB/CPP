@@ -6,11 +6,11 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:16:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:53:23 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:48:44 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "WrongCat.hpp"
 
 WrongCat::WrongCat(void) {
   std::cout << "WrongCat constructor called" << std::endl;
