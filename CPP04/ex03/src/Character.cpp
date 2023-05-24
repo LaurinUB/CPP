@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:17:12 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 14:10:47 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:58:36 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Character::Character(void) {
   this->name_ = "default";
   for (int i = 0; i < 4; ++i) {
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = NULL;
   }
 }
 
@@ -27,7 +27,7 @@ Character::Character(const Character& rhs) {
     if (rhs.inventory_[i]) {
       this->inventory_[i] = rhs.inventory_[i]->clone();
     } else {
-      this->inventory_[i] = nullptr;
+      this->inventory_[i] = NULL;
     }
   }
 }
@@ -45,12 +45,12 @@ Character&  Character::operator=(const Character& rhs) {
   for (int i = 0; i < 4; ++i) {
     if (this->inventory_[i]) {
       delete this->inventory_[i];
-      this->inventory_[i] = nullptr;
+      this->inventory_[i] = NULL;
     }
     if (rhs.inventory_[i]) {
       this->inventory_[i] = rhs.inventory_[i]->clone();
     } else {
-      this->inventory_[i] = nullptr;
+      this->inventory_[i] = NULL;
     }
   }
   return *this;
@@ -59,7 +59,7 @@ Character&  Character::operator=(const Character& rhs) {
 Character::Character(const std::string name) {
   this->name_ = name;
   for (int i = 0; i < 4; ++i) {
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = NULL;
   }
 }
 
@@ -91,11 +91,11 @@ AMateria* Character::getMateria(int idx) {
   if (this->inventory_[idx]) {
     return this->inventory_[idx];
   }
-  return nullptr;
+  return NULL;
 }
 
 void Character::unequip(int idx) {
   if (idx < 4 && idx >= 0) {
-    this->inventory_[idx] = nullptr;
+    this->inventory_[idx] = NULL;
   }
 }
