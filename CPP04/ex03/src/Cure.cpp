@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 20:27:16 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/24 13:55:01 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:30:06 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cure::Cure(void) : AMateria("cure") {}
 
-Cure::Cure(const Cure& rhs) {
+Cure::Cure(const Cure& rhs) : AMateria(rhs) {
   *this = rhs;
 }
 
