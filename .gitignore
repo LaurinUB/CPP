@@ -6,21 +6,32 @@
 *.lo
 *.o
 *.obj
+
+#CPP00
 megaphone
 Phonebook
 Account
+
+#CPP01
 Zombie
 Brain
 Violence
 Sed
 Harl
 harlFilter
+
+#CPP02
 fixed
 bsp
+
+#CPP03
 ClapTrap
 ScavTrap
 FragTrap
 DiamondTrap
+
+#CPP05
+Bureaucrat
 
 # Precompiled Headers
 *.gch
