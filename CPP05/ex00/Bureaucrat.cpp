@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:45 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/25 14:45:30 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:12:13 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,10 @@ Bureaucrat&  Bureaucrat::operator=(const Bureaucrat& rhs) {
     *this = rhs;
   }
   return *this;
+}
+
+std::ostream& operator<<(std::ostream& o, Bureaucrat b) {
+  o << "Bureaucrat: " << b.getName() << " has the grade: "
+    << b.getGrade() << std::endl;
+  return o;
 }
