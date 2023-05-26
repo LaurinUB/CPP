@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:19:19 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:19:20 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:08:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Brain {
   ~Brain(void);
   Brain& operator=(const Brain &rhs);
 
+ private:
   std::string ideas[100];
 };
 
