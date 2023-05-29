@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 08:07:34 by luntiet-          #+#    #+#             */
+/*   Updated: 2023/05/29 08:08:32 by luntiet-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -37,7 +49,6 @@ Form&  Form::operator=(const Form& rhs) {
 }
 
 void  Form::beSigned(const Bureaucrat& b) {
-  std::cout << "beSigned" << std::endl;
   if (this->getSignRequiredGrade() > 150) {
     throw Form::GradeTooLowException();
   } else if (this->getSignRequiredGrade() < 1) {
@@ -75,7 +86,8 @@ const char* Form::GradeTooHighException::what(void) const throw() {
 
 std::ostream& operator<<(std::ostream& o, Form& f) {
   o << "Form: " << f.getName() << std::endl << "signed: " << f.getSigned()
-    << std::endl << "sign required grade: " << f.getSignRequiredGrade() << std::endl
+    << std::endl << "sign required grade: " << f.getSignRequiredGrade()
+    << std::endl
     << "execution required grade: " << f.getExecuteRequiredGrade() << std::endl;
   return o;
 }
