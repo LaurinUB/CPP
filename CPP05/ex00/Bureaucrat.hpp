@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:38:16 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/26 14:37:26 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:01:48 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Bureaucrat {
     const char* what(void) const throw();
   };
   class GradeTooLowException : public std::exception {
-    virtual const char* what(void) const throw();
+    const char* what(void) const throw();
   };
   Bureaucrat(void);
   Bureaucrat(const Bureaucrat &rhs);
