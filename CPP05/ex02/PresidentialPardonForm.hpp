@@ -11,6 +11,7 @@ class PresidentialPardonForm : public Form {
   PresidentialPardonForm(const PresidentialPardonForm &rhs);
   ~PresidentialPardonForm(void);
   PresidentialPardonForm& operator=(const PresidentialPardonForm &rhs);
+  PresidentialPardonForm(const std::string name);
 };
 
 #endif  // PRESIDENTIALPARDONFORM_HPP_
