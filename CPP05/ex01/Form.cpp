@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:07:34 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/29 08:08:32 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:30:42 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ Form&  Form::operator=(const Form& rhs) {
 }
 
 void  Form::beSigned(const Bureaucrat& b) {
-  if (this->getSignRequiredGrade() > 150) {
+  if (this->getSignRequiredGrade() < b.getGrade()) {
     throw Form::GradeTooLowException();
-  } else if (this->getSignRequiredGrade() < 1) {
-    throw Form::GradeTooHighException();
   } else {
-    if (b.signForm(*this)) {
-      this->signed_ = true;
-    }
+    this->signed_ = true;
   }
+}
+
+void  Form::setSign(const bool t) {
+  this->signed_ = t;
 }
 
 std::string Form::getName(void) const {
