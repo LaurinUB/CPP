@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:45 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 11:40:05 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:36:51 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,25 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
   return "the grade is to low!";
 }
 
-bool Bureaucrat::signForm(const Form& form) const {
-  if (this->getGrade() < form.getSignRequiredGrade()) {
+void Bureaucrat::signForm(Form& form) {
+  if (form.getSigned()) {
+    std::cout << "Form is allready signed" << std::endl;
+  } else if (this->getGrade() < form.getSignRequiredGrade()) {
     std::cout << this->getName() << " signed " << form.getName() << std::endl;
-    return true;
+    form.setSign(true);
+  } else {
+    std::cout << this->getName() << " couldn't sign " << form.getName()
+      << " because sign grade is to low" << std::endl;
   }
-  std::cout << this->getName() << " couldn't sign " << form.getName()
-    << " because grade is to low" << std::endl;
-  return false;
 }
 
 void  Bureaucrat::executeForm(const Form& form) const {
-  if (this->getGrade() < form.getExecuteRequiredGrade()) {
+  if (this->getGrade() < form.getExecuteRequiredGrade() && form.getSigned()) {
     std::cout << this->getName() << " executed " << form.getName()
       << std::endl;
+    form.execute(*this);
+  } else if (!form.getSigned()) {
+    std::cout << form.getName() << " is not signed" << std::endl;
   } else {
     std::cout << "Grade of " << this->getName() << " to low to execute "
       << form.getName() << std::endl;
