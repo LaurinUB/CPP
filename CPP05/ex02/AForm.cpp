@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:13 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 11:30:22 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:35:54 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ Form&  Form::operator=(const Form& rhs) {
 }
 
 void  Form::beSigned(const Bureaucrat& b) {
-  if (this->getSignRequiredGrade() > 150) {
+  if (this->getSignRequiredGrade() < b.getGrade()) {
     throw Form::GradeTooLowException();
-  } else if (this->getSignRequiredGrade() < 1) {
-    throw Form::GradeTooHighException();
   } else {
-    if (b.signForm(*this)) {
-      this->signed_ = true;
-    }
+    this->signed_ = true;
   }
+}
+
+void  Form::setSign(const bool t) {
+  this->signed_ = t;
 }
 
 std::string Form::getName(void) const {
@@ -90,12 +90,4 @@ std::ostream& operator<<(std::ostream& o, Form& f) {
     << std::endl
     << "execution required grade: " << f.getExecuteRequiredGrade() << std::endl;
   return o;
-}
-
-void  Form::execute(const Bureaucrat& executor) {
-  if (this->getExecuteRequiredGrade() < executor.getGrade()) {
-    throw GradeTooHighException();
-  } else {
-    executor.executeForm(*this);
-  }
 }
