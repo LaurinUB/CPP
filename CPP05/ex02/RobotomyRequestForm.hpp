@@ -11,6 +11,7 @@ class RobotomyRequestForm : public Form {
   RobotomyRequestForm(const RobotomyRequestForm &rhs);
   ~RobotomyRequestForm(void);
   RobotomyRequestForm& operator=(const RobotomyRequestForm &rhs);
+  RobotomyRequestForm(const std::string name);
 };
 
 #endif  // ROBOTOMYREQUESTFORM_HPP_

@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:13 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/29 08:27:14 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:30:22 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,12 @@ std::ostream& operator<<(std::ostream& o, Form& f) {
     << std::endl
     << "execution required grade: " << f.getExecuteRequiredGrade() << std::endl;
   return o;
+}
+
+void  Form::execute(const Bureaucrat& executor) {
+  if (this->getExecuteRequiredGrade() < executor.getGrade()) {
+    throw GradeTooHighException();
+  } else {
+    executor.executeForm(*this);
+  }
 }

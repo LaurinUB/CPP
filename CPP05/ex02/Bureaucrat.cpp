@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:45 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/29 08:07:09 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:40:05 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,14 @@ bool Bureaucrat::signForm(const Form& form) const {
   std::cout << this->getName() << " couldn't sign " << form.getName()
     << " because grade is to low" << std::endl;
   return false;
+}
+
+void  Bureaucrat::executeForm(const Form& form) const {
+  if (this->getGrade() < form.getExecuteRequiredGrade()) {
+    std::cout << this->getName() << " executed " << form.getName()
+      << std::endl;
+  } else {
+    std::cout << "Grade of " << this->getName() << " to low to execute "
+      << form.getName() << std::endl;
+  }
 }

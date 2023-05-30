@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:19 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/29 08:48:45 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:46:05 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Form {
   Form(const std::string name, unsigned int sign_req, unsigned int exe_req);
 
   void  beSigned(const Bureaucrat& b);
+  void  execute(const Bureaucrat& executor);
 
   std::string getName(void) const;
   bool  getSigned(void) const;

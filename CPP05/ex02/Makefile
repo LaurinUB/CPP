@@ -6,7 +6,7 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 14:14:56 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/29 08:02:33 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/05/30 10:35:42 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,12 @@ CYAN			= \033[0;36m
 RED				= \033[0;31m
 WHITE			= \033[0m
 
-SRC				= main.cpp Bureaucrat.cpp AForm.cpp
+SRC				= main.cpp \
+				  Bureaucrat.cpp \
+				  AForm.cpp \
+				  ShrubberyCreationForm.cpp \
+				  PresidentialPardonForm.cpp \
+				  RobotomyRequestForm.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
