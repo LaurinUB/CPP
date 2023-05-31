@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 13:59:49 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:48:19 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:07:09 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void  PresidentialPardonForm::execute(const Bureaucrat& executer) const {
   if (this->getExecuteRequiredGrade() < executer.getGrade()) {
     throw GradeTooLowException();
   } else {
-    std::cout << executer.getName() << " has been pardoned by Zaphod Beeblebrox"
+    std::cout << this->target_ << " has been pardoned by Zaphod Beeblebrox"
       << std::endl;
   }
 }
