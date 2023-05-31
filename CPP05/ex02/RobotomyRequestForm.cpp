@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 13:59:57 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 18:22:41 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:51:11 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-    : Form("default", 72, 45) {
+    : Form("RobotomyRequestForm", 72, 45), target_("default") {
   this->signed_ = false;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string name)
-    : Form(name, 72, 45) {
+    : Form("RobotomyRequestForm", 72, 45), target_(name) {
   this->signed_ = false;
 }
 

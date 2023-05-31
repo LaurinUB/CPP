@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:00:07 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:41:39 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:48:48 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class RobotomyRequestForm : public Form {
   RobotomyRequestForm(const std::string name);
 
   void  execute(const Bureaucrat& executer) const;
+
+ private:
+  const std::string target_;
 };
 
 #endif  // ROBOTOMYREQUESTFORM_HPP_

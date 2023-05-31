@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:08 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 17:45:58 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:58:06 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-    : Form("default", 145, 137) {
+    : Form("ShrubberyCreationForm", 145, 137), target_("default") {
     this->signed_ = false;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name)
-    : Form(name, 145, 137) {
+    : Form("ShrubberyCreationForm", 145, 137), target_(name) {
     this->signed_ = false;
 }
 
@@ -43,7 +43,7 @@ void  ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
     throw GradeTooLowException();
   } else {
     std::ofstream treefile;
-    treefile.open((executer.getName() + "_shrubbery").c_str());
+    treefile.open((this->target_ + "_shrubbery").c_str());
     treefile << "            ▓▓▓▓" << std::endl
       << "          ▒▒▒▒▒▒▒▒" << std::endl
       << "      ░░▓▓▒▒▒▒▒▒▒▒▒▒" << std::endl
