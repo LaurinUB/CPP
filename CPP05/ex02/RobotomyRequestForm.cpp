@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 13:59:57 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:51:11 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:07:48 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ void  RobotomyRequestForm::execute(const Bureaucrat& executer) const {
   } else {
     std::srand(std::time(NULL));
     int random = std::rand() % 2;
-    std::cout << random << std::endl;
     if (random == 1) {
       std::cout << "* some drilling noises *" << std::endl;
-      std::cout << executer.getName() << " has been robotomised" << std::endl;
+      std::cout << this->target_ << " has been robotomised" << std::endl;
     } else {
       std::cout << "* some drilling noises *" << std::endl;
       std::cout << "process failed!" << std::endl;
