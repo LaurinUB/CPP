@@ -12,7 +12,7 @@ class Intern {
   ~Intern(void);
   Intern& operator=(const Intern &rhs);
 
-  Form* makeForm(std::string request, std::string target);
+  AForm* makeForm(std::string request, std::string target);
 };
 
 #endif  // INTERN_HPP_

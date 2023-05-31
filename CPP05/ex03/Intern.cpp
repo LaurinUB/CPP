@@ -18,7 +18,7 @@ Intern&  Intern::operator=(const Intern& rhs) {
   return *this;
 }
 
-Form* Intern::makeForm(std::string request, std::string target) {
+AForm* Intern::makeForm(std::string request, std::string target) {
   enum Case {scf, rrf, ppf};
   std::string names[3] = {"shrubbery creation",
     "robotomy request", "presidential pardon"};

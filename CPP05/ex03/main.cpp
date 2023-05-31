@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:55 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 10:13:07 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:44:53 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(void) {
     std::string bob = "Bob";
     Intern  tim = Intern();
     Bureaucrat thomas = Bureaucrat("Thomas", 1);
-    Form* test1 = tim.makeForm("shrubbery creation", "bob");
-    Form* test2 = tim.makeForm("robotomy request", "bob");
-    Form* test3 = tim.makeForm("presidential pardon", "bob");
+    AForm* test1 = tim.makeForm("shrubbery creation", "bob");
+    AForm* test2 = tim.makeForm("robotomy request", "bob");
+    AForm* test3 = tim.makeForm("presidential pardon", "bob");
     thomas.signForm(*test1);
     thomas.executeForm(*test1);
     thomas.signForm(*test2);
