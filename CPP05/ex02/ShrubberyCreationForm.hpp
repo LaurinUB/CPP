@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:27 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 15:49:47 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:48:59 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class ShrubberyCreationForm : public Form {
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm &rhs);
 
   void  execute(const Bureaucrat& executer) const;
+
+ private:
+  const std::string target_;
 };
 
 #endif  // SHRUBBERYCREATIONFORM_HPP_

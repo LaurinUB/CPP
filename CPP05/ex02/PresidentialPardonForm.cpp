@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 13:59:49 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 17:58:05 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:48:19 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void)
-    : Form("default", 25, 5) {
+    : Form("PresidentialPardonForm", 25, 5), target_("default") {
   this->signed_ = false;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string name)
-    : Form(name, 25, 5) {
+    : Form("PresidentialPardonForm", 25, 5), target_(name) {
   this->signed_ = false;
 }
 
