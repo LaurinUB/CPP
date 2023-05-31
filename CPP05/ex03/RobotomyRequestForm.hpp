@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:00:07 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:48:48 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:34:28 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public Form {
+class RobotomyRequestForm : public AForm {
  public:
   RobotomyRequestForm(void);
   RobotomyRequestForm(const RobotomyRequestForm &rhs);

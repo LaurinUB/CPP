@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:38:16 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 17:39:00 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:37:25 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Bureaucrat {
   unsigned int getGrade(void) const;
   void  increment(void);
   void  decrement(void);
-  void  signForm(Form& form);
-  void  executeForm(const Form& form) const;
+  void  signForm(AForm& form);
+  void  executeForm(const AForm& form) const;
 
  private:
   const std::string name_;

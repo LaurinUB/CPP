@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:45 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/30 17:36:51 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:37:59 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
   return "the grade is to low!";
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
   if (form.getSigned()) {
     std::cout << "Form is allready signed" << std::endl;
   } else if (this->getGrade() < form.getSignRequiredGrade()) {
@@ -94,7 +94,7 @@ void Bureaucrat::signForm(Form& form) {
   }
 }
 
-void  Bureaucrat::executeForm(const Form& form) const {
+void  Bureaucrat::executeForm(const AForm& form) const {
   if (this->getGrade() < form.getExecuteRequiredGrade() && form.getSigned()) {
     std::cout << this->getName() << " executed " << form.getName()
       << std::endl;
