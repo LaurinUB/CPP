@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:00:03 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:47:52 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:32:49 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public Form {
+class PresidentialPardonForm : public AForm {
  public:
   PresidentialPardonForm(void);
   PresidentialPardonForm(const PresidentialPardonForm &rhs);

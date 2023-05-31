@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:27 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:48:59 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:34:14 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
  public:
   ShrubberyCreationForm(void);
   ShrubberyCreationForm(const ShrubberyCreationForm &rhs);

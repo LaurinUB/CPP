@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:27:08 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:58:06 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:34:46 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-    : Form("ShrubberyCreationForm", 145, 137), target_("default") {
+    : AForm("ShrubberyCreationForm", 145, 137), target_("default") {
     this->signed_ = false;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name)
-    : Form("ShrubberyCreationForm", 145, 137), target_(name) {
+    : AForm("ShrubberyCreationForm", 145, 137), target_(name) {
     this->signed_ = false;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs)
-    : Form(rhs) {
+    : AForm(rhs) {
   *this = rhs;
 }
 
