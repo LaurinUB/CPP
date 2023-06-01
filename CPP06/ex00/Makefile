@@ -6,20 +6,20 @@
 #    By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 18:26:52 by luntiet-          #+#    #+#              #
-#    Updated: 2023/05/31 18:27:33 by luntiet-         ###   ########.fr        #
+#    Updated: 2023/06/01 13:49:53 by luntiet-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= convert
 CXX				= c++
-CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror -Wno-conversion
 
 GREEN			= \033[0;32m
 CYAN			= \033[0;36m
 RED				= \033[0;31m
 WHITE			= \033[0m
 
-SRC				= main.cpp
+SRC				= main.cpp ScalarConverter.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
