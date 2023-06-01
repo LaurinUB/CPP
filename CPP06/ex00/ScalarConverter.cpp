@@ -6,11 +6,12 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:06:11 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:31:36 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sstream>
+#include <climits>
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(void) {}
@@ -28,14 +29,33 @@ ScalarConverter&  ScalarConverter::operator=(const ScalarConverter& rhs) {
   return *this;
 }
 
+
 int ScalarConverter::identify_type(const std::string literal) {
   if (literal.size() == 1) {
     return 0;
   }
+
+  long double val;
+  std::stringstream ss(literal);
+  ss >> val;
+
+  if (literal.find('.', 0) == std::string::npos && isInt(val)) {
+    return 1;
+  // } else {
+  //   return floatOrDouble(val);
+  }
   return 4;
 }
 
-void  ScalarConverter::convertInt(std::string literal) { (void)literal; }
+void  ScalarConverter::convertInt(std::string literal) {
+  int val;
+  std::stringstream ss(literal);
+  ss >> val;
+
+  float to_float = static_cast<float>(val);
+  double to_double = static_cast<double>(val);
+  print_result(val , val, to_float, to_double);
+}
 
 void  ScalarConverter::convertFloat(std::string literal) { (void)literal; }
 
@@ -43,16 +63,10 @@ void  ScalarConverter::convertDouble(std::string literal) { (void)literal; }
 
 void  ScalarConverter::convertChar(std::string literal) {
   char c = literal.at(0);
-  int to_int = static_cast<int>(literal.at(0));
-  float to_float = static_cast<float>(literal.at(0));
-  double to_double = static_cast<double>(literal.at(0));
-
-  if (c > 31 && c < 128) {
-    std::cout << "char: " << literal.at(0) << std::endl;
-  }
-  std::cout << "int: " << to_int << std::endl;
-  std::cout << "float: " << to_float << std::endl;
-  std::cout << "double: " << to_double << std::endl;
+  int to_int = static_cast<int>(c);
+  float to_float = static_cast<float>(c);
+  double to_double = static_cast<double>(c);
+  print_result(c, to_int, to_float, to_double);
 }
 
 void  ScalarConverter::convert(const std::string literal) {
@@ -76,4 +90,20 @@ void  ScalarConverter::convert(const std::string literal) {
     default:
       std::cout << "not convertable" << std::endl;
   }
+}
+
+void  ScalarConverter::print_result(char c, int i, float f, double d) {
+  if (c > 31 && c < 127) {
+    c = static_cast<char>(c);
+    std::cout << "char: " << c << std::endl;
+  } else {
+    std::cout << "char: " << "not displayable" << std::endl;
+  }
+  std::cout << "int: " << i << std::endl;
+  std::cout << "float: " << f << std::endl;
+  std::cout << "double: " << d << std::endl;
+}
+
+bool  ScalarConverter::isInt(long double val) {
+  return val <= INT_MAX && val >= INT_MIN;
 }
