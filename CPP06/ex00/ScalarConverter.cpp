@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/01 22:31:36 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/02 11:58:06 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,27 @@ ScalarConverter&  ScalarConverter::operator=(const ScalarConverter& rhs) {
   return *this;
 }
 
-
-int ScalarConverter::identify_type(const std::string literal) {
+int ScalarConverter::identifyType(const std::string literal) {
   if (literal.size() == 1) {
     return 0;
-  }
-
-  long double val;
-  std::stringstream ss(literal);
-  ss >> val;
-
-  if (literal.find('.', 0) == std::string::npos && isInt(val)) {
+  } else if (isInt(literal)) {
     return 1;
-  // } else {
-  //   return floatOrDouble(val);
+  } else if (isFloat(literal)) {
+    return 2;
+  // } else if (isDouble(val)) {
+  //   return 3;
   }
-  return 4;
+  return -1;
 }
 
 void  ScalarConverter::convertInt(std::string literal) {
   int val;
-  std::stringstream ss(literal);
-  ss >> val;
-
+  std::istringstream iss(literal);
+  iss >> val;
   float to_float = static_cast<float>(val);
   double to_double = static_cast<double>(val);
-  print_result(val , val, to_float, to_double);
+
+  printResult(val , val, to_float, to_double);
 }
 
 void  ScalarConverter::convertFloat(std::string literal) { (void)literal; }
@@ -63,16 +58,18 @@ void  ScalarConverter::convertDouble(std::string literal) { (void)literal; }
 
 void  ScalarConverter::convertChar(std::string literal) {
   char c = literal.at(0);
+
   int to_int = static_cast<int>(c);
   float to_float = static_cast<float>(c);
   double to_double = static_cast<double>(c);
-  print_result(c, to_int, to_float, to_double);
+
+  printResult(c, to_int, to_float, to_double);
 }
 
 void  ScalarConverter::convert(const std::string literal) {
   enum Type {CHAR, INT, FLOAT, DOUBLE};
 
-  int typ = identify_type(literal);
+  int typ = identifyType(literal);
   switch (typ) {
     case CHAR:
       convertChar(literal);
@@ -92,7 +89,7 @@ void  ScalarConverter::convert(const std::string literal) {
   }
 }
 
-void  ScalarConverter::print_result(char c, int i, float f, double d) {
+void  ScalarConverter::printResult(char c, int i, float f, double d) {
   if (c > 31 && c < 127) {
     c = static_cast<char>(c);
     std::cout << "char: " << c << std::endl;
@@ -104,6 +101,63 @@ void  ScalarConverter::print_result(char c, int i, float f, double d) {
   std::cout << "double: " << d << std::endl;
 }
 
-bool  ScalarConverter::isInt(long double val) {
+bool  ScalarConverter::isNumber(const std::string literal) {
+  return (literal.find_first_not_of("+-0123456789.f") == std::string::npos);
+}
+
+int ScalarConverter::countChar(const std::string literal, char c) {
+  int count = 0;
+
+  if (isPseudoLiteral(literal)) {
+    return 1;
+  }
+  if (literal.find('f') != (literal.size() - 1)) {
+    return 0;
+  }
+  for (size_t i = 0; i < literal.size(); ++i) {
+    if (literal.at(i) == c) {
+      count++;
+    }
+  }
+  return count;
+}
+
+bool  ScalarConverter::isFloat(std::string  literal) {
+  float f;
+
+  if ((!isNumber(literal) && !isPseudoLiteral(literal))
+      || countChar(literal, 'f') != 1
+      || countChar(literal, '.') != 1) {
+    std::cout << "failed for float check" << std::endl;
+    return false;
+  }
+  literal.pop_back();
+  std::istringstream iss(literal);
+  iss >> f;
+  if (!iss.fail()) {
+    std::cout << "did not fail: " << f << std::endl;
+    return true;
+  }
+  return false;
+}
+
+bool  ScalarConverter::isPseudoLiteral(const std::string literal) {
+  return (literal.compare("+inf") == 0
+      || literal.compare("-inf") == 0
+      || literal.compare("nan") == 0
+      || literal.compare("+inff") == 0
+      || literal.compare("-inff") == 0
+      || literal.compare("nanf") == 0);
+}
+
+bool  ScalarConverter::isInt(const std::string literal) {
+  long double val;
+
+  if (!isNumber(literal) || isPseudoLiteral(literal)
+      || literal.find_first_of(".f") != std::string::npos) {
+    return false;
+  }
+  std::istringstream iss(literal);
+  iss >> val;
   return val <= INT_MAX && val >= INT_MIN;
 }
