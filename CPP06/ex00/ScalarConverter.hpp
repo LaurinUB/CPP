@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:55 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/02 11:55:14 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/02 14:22:10 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ScalarConverter {
   static  void convert(std::string literal);
 
  private:
-  static void printResult(char c, int i, float f, double d);
+  static void printResult(int c, int i, float f, double d);
   static int  identifyType(std::string literal);
   static bool isPseudoLiteral(const std::string literal);
   static bool isNumber(const std::string literal);
@@ -32,6 +32,7 @@ class ScalarConverter {
   static void convertInt(std::string literal);
   static void convertFloat(std::string literal);
   static void convertDouble(std::string literal);
+
   ScalarConverter(void);
   ScalarConverter(const ScalarConverter &rhs);
   ~ScalarConverter(void);
