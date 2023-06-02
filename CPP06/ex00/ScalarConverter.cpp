@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/02 11:58:06 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:57:05 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,36 @@ void  ScalarConverter::convertInt(std::string literal) {
   printResult(val , val, to_float, to_double);
 }
 
-void  ScalarConverter::convertFloat(std::string literal) { (void)literal; }
+void  ScalarConverter::convertFloat(std::string literal) {
+  float f;
+  double to_double;
+  int to_int;
+
+  literal.pop_back();
+  std::istringstream iss(literal);
+  iss >> f;
+  to_double = static_cast<double>(f);
+  to_int = static_cast<long double>(f);
+
+  printResult(to_int, to_int, f, to_double);
+}
 
 void  ScalarConverter::convertDouble(std::string literal) { (void)literal; }
 
 void  ScalarConverter::convertChar(std::string literal) {
-  char c = literal.at(0);
+  int i;
+  char c;
 
+  if (isNumber(literal)) {
+    int i;
+    std::istringstream iss(literal);
+    iss >> i;
+    c = static_cast<char>(i);
+  } else {
+    std::istringstream iss(literal);
+    (void)i;
+    iss >> c;
+  }
   int to_int = static_cast<int>(c);
   float to_float = static_cast<float>(c);
   double to_double = static_cast<double>(c);
@@ -89,10 +112,11 @@ void  ScalarConverter::convert(const std::string literal) {
   }
 }
 
-void  ScalarConverter::printResult(char c, int i, float f, double d) {
+void  ScalarConverter::printResult(int c, int i, float f, double d) {
+  char cres;
   if (c > 31 && c < 127) {
-    c = static_cast<char>(c);
-    std::cout << "char: " << c << std::endl;
+    cres = static_cast<char>(c);
+    std::cout << "char: " << cres << std::endl;
   } else {
     std::cout << "char: " << "not displayable" << std::endl;
   }
@@ -135,7 +159,6 @@ bool  ScalarConverter::isFloat(std::string  literal) {
   std::istringstream iss(literal);
   iss >> f;
   if (!iss.fail()) {
-    std::cout << "did not fail: " << f << std::endl;
     return true;
   }
   return false;
