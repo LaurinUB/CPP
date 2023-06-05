@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:55 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/02 14:22:10 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:31:00 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ class ScalarConverter {
   static  void convert(std::string literal);
 
  private:
-  static void printResult(int c, int i, float f, double d);
   static int  identifyType(std::string literal);
   static bool isPseudoLiteral(const std::string literal);
   static bool isNumber(const std::string literal);
   static bool isInt(const std::string literal);
+  static bool isChar(const long double val);
   static bool isFloat(const std::string literal);
+  static bool isDouble(const std::string literal);
   static int  countChar(const std::string literal, char c);
   static void convertChar(std::string literal);
   static void convertInt(std::string literal);
