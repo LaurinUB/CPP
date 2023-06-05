@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/05 13:54:55 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:56:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,7 +245,8 @@ bool  ScalarConverter::isInt(const std::string literal) {
   }
   std::istringstream iss(literal);
   iss >> val;
-  return val <= INT_MAX && val >= INT_MIN;
+  return val <= std::numeric_limits<int>::max()
+    && val >= std::numeric_limits<int>::min();
 }
 
 bool  ScalarConverter::isChar(const long double val) {
