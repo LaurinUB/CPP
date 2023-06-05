@@ -6,12 +6,12 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/05 11:36:10 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:54:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sstream>
-#include <climits>
+#include <limits>
 #include "ScalarConverter.hpp"
 
 void  ScalarConverter::convert(const std::string literal) {
@@ -110,7 +110,7 @@ void  ScalarConverter::convertFloat(std::string literal) {
 
   literal.erase(literal.size() - 1, 1);
   std::istringstream iss(literal);
-  iss >> f;
+  iss >> std::scientific >> f;
   double to_double = static_cast<double>(f);
   int to_int = static_cast<long double>(f);
 
@@ -124,8 +124,8 @@ void  ScalarConverter::convertFloat(std::string literal) {
   }
 
   if (!isPseudoLiteral(literal)
-      && to_double <= INT_MAX
-      && to_double >= INT_MIN) {
+      && to_double <= std::numeric_limits<int>::max()
+      && to_double >= std::numeric_limits<int>::min()) {
     std::cout << "int: " << to_int << std::endl;
   } else {
     std::cout << "int: impossible" << std::endl;
@@ -143,7 +143,7 @@ void  ScalarConverter::convertDouble(std::string literal) {
   char  to_char;
 
   std::istringstream iss(literal);
-  iss >> d;
+  iss >> std::scientific >> d;
 
   int to_int = static_cast<int>(d);
   float to_float = static_cast<float>(d);
@@ -158,7 +158,9 @@ void  ScalarConverter::convertDouble(std::string literal) {
     std::cout << "char: impossible" << std::endl;
   }
 
-  if (!isPseudoLiteral(literal) && d <= INT_MAX && d >= INT_MIN) {
+  if (!isPseudoLiteral(literal)
+      && d <= std::numeric_limits<int>::max()
+      && d >= std::numeric_limits<int>::min()) {
     std::cout << "int: " << to_int << std::endl;
   } else {
     std::cout << "int: impossible" << std::endl;
@@ -196,7 +198,7 @@ bool ScalarConverter::isDouble(std::string literal) {
   }
   std::istringstream iss(literal);
   iss >> std::scientific >> d;
-  if (!iss.fail()) {
+  if (!iss.fail() && iss.eof()) {
     return true;
   }
   return false;
