@@ -41,6 +41,7 @@ Bureaucrat
 #CPP06
 convert
 serialize
+identify
 
 # Precompiled Headers
 *.gch
