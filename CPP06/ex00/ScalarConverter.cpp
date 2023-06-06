@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:42:51 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/05 18:56:55 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:00:52 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,7 @@ int ScalarConverter::identifyType(const std::string literal) {
 
 void  ScalarConverter::convertChar(std::string literal) {
   std::cout << "Converted from Char" << std::endl;
-  int i;
-  char c;
-
-  if (isNumber(literal)) {
-    std::istringstream iss(literal);
-    iss >> i;
-    c = static_cast<char>(i);
-  } else {
-    c = literal.at(0);
-  }
+  char c = literal.at(0);
 
   int to_int = static_cast<int>(c);
   float to_float = static_cast<float>(c);
@@ -73,8 +64,7 @@ void  ScalarConverter::convertChar(std::string literal) {
     std::cout << "char: Non displayable" << std::endl;
   }
   std::cout << "int: " << to_int << std::endl;
-  std::cout.precision(1);
-  std::cout << std::showpoint << std::fixed << "float: " << to_float
+  std::cout << std::showpoint << "float: " << to_float
     << "f" << std::endl;
   std::cout << "double: " << to_double << std::endl;
 }
@@ -110,7 +100,7 @@ void  ScalarConverter::convertFloat(std::string literal) {
 
   literal.erase(literal.size() - 1, 1);
   std::istringstream iss(literal);
-  iss >> std::scientific >> f;
+  iss >> f;
   double to_double = static_cast<double>(f);
   int to_int = static_cast<long double>(f);
 
@@ -143,7 +133,7 @@ void  ScalarConverter::convertDouble(std::string literal) {
   char  to_char;
 
   std::istringstream iss(literal);
-  iss >> std::scientific >> d;
+  iss >> d;
 
   int to_int = static_cast<int>(d);
   float to_float = static_cast<float>(d);
@@ -197,7 +187,7 @@ bool ScalarConverter::isDouble(std::string literal) {
     return false;
   }
   std::istringstream iss(literal);
-  iss >> std::scientific >> d;
+  iss >> d;
   if (!iss.fail() && iss.eof()) {
     return true;
   }
@@ -220,7 +210,7 @@ bool  ScalarConverter::isFloat(std::string literal) {
     return false;
   }
   std::istringstream iss(literal);
-  iss >> std::scientific >> f;
+  iss >> f;
   if (!iss.fail()) {
     return true;
   }
