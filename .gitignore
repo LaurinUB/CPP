@@ -43,6 +43,9 @@ convert
 serialize
 identify
 
+#CPP07
+templet
+
 # Precompiled Headers
 *.gch
 *.pch
