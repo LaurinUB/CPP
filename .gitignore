@@ -48,6 +48,7 @@ templet
 
 #CPP08
 easyfind
+span
 
 # Precompiled Headers
 *.gch
