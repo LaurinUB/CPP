@@ -4,16 +4,14 @@
 #include <algorithm>
 
 template<class T>
-int easyfind(T container, int to_find) {
-  typename std::iterator_traits<T>::difference_type iter;
-  iter = container.begin();
-  while (iter != container.end()) {
-    if (container[iter] == to_find) {
-      return to_find;
-    }
-    iter++;
+int easyfind(const T& container, int to_find) {
+  typename T::const_iterator iter;
+  iter = std::find(container.begin(), container.end(), to_find);
+  if (*iter == to_find) {
+    return *iter;
+  } else {
+    return container.back();
   }
-  return container.at(container.end());
 }
 
 #endif  // EASYFIND_HPP_
