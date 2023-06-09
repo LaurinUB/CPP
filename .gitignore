@@ -46,6 +46,9 @@ identify
 #CPP07
 templet
 
+#CPP08
+easyfind
+
 # Precompiled Headers
 *.gch
 *.pch
