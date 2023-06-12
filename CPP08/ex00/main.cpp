@@ -6,18 +6,16 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:56:59 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/09 18:58:08 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:22:00 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <array>
 #include <vector>
 #include <list>
 #include <iostream>
 #include "easyfind.hpp"
 
 int main(void) {
-  std::array<int, 8> test = {0, 1, 2, 3, 4, 5, 6, 7};
   std::vector<int> test1;
   std::list<int> test2;
   test1.push_back(1);
@@ -30,24 +28,6 @@ int main(void) {
   test2.push_front(3);
   test2.push_front(4);
   test2.push_front(5);
-  std::cout << "Test with array:" << std::endl;
-  for (size_t i = 0; i < test.size(); ++i) {
-    std::cout << test[i] << " ";
-  }
-  std::cout << std::endl << std::endl;
-  std::cout << "looking for 2" << std::endl;
-  if (2 == easyfind(test, 2)) {
-    std::cout << "Element found in test" << std::endl;
-  } else {
-    std::cout << "element not found in test" << std::endl;
-  }
-  std::cout << std::endl << "looking for 8" << std::endl;
-  if (8 == easyfind(test, 8)) {
-    std::cout << "Element found in test" << std::endl;
-  } else {
-    std::cout << "element not found in test" << std::endl;
-  }
-  std::cout << std::endl;
   std::cout << "Test with Vector:" << std::endl;
   for (size_t i = 0; i < test1.size(); ++i) {
     std::cout << test1[i] << " ";
