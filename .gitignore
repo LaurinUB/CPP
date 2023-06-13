@@ -49,6 +49,7 @@ templet
 #CPP08
 easyfind
 span
+mutant
 
 # Precompiled Headers
 *.gch
