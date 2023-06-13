@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:02:27 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/12 13:34:46 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:58:31 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,21 @@ class Span {
   int longestSpan();
 
   int getNumber(unsigned int index);
+  int getSize();
+
+  class EmptyException : public std::exception {
+    const char* what() const throw();
+  };
+
+  class OnlyOneElementException : public std::exception {
+    const char* what() const throw();
+  };
 
  private:
+  unsigned int  size_;
   std::vector<int> container_;
 };
+
+std::ostream& operator<<(std::ostream &o, Span& s);
 
 #endif  // SPAN_HPP_
