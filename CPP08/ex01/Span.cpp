@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:02:25 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/13 11:18:50 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:03:56 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ void  Span::addNumber(int nbr) {
     this->container_.push_back(nbr);
   } else {
     std::cerr << "Cannot add number, span ist full." << std::endl;
+  }
+}
+
+void  Span::addManyNumbers() {
+  unsigned int i = 0;
+  while (i < this->size_) {
+    addNumber(std::rand());
+    i++;
   }
 }
 

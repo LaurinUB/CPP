@@ -6,13 +6,15 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:02:27 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/13 10:58:31 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:04:11 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP_
 #define SPAN_HPP_
 
+#include <cstdlib>
+#include <ctime>
 #include <vector>
 
 class Span {
@@ -24,6 +26,7 @@ class Span {
   Span& operator=(const Span& obj);
 
   void  addNumber(int nbr);
+  void  addManyNumbers();
   int shortestSpan();
   int longestSpan();
 
