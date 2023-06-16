@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:20:31 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/15 18:21:48 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:31:47 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
   return *this;
 }
 
-void  exchange(std::string csv_file) {
-  (void)csv_file;
+void parse_infile(std::string infile) {
+  std::ifstream in;
+
+  in.open(infile);
+  if (!in.is_open()) {
+    std::cout << "Could not open file!" << std::endl;
+    return;
+  }
+}
+
+void  BitcoinExchange::exchange(std::string infile) {
+  parse_infile(infile);
 }
