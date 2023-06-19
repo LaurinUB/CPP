@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:20:31 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/19 16:18:56 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:27:55 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,10 @@ std::map<std::string, float> BitcoinExchange::parse_database() {
     std::cout << "Error: could not find database." << std::endl;
   }
   data >> tmp;
+  if (!tmp.compare("date,exchange_rate")) {
+    data >> tmp;
+    std::cout << tmp << std::endl;
+  }
   while (!data.eof()) {
     data >> tmp;
     date = tmp.substr(0, tmp.find(','));
