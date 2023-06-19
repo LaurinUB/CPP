@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:35 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:54:51 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:54:19 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <ctime>
+#include <iomanip>
 #include <map>
+#include <utility>
 
 class BitcoinExchange {
  public:
