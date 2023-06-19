@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:20:31 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/19 16:12:47 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:18:56 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void  BitcoinExchange::parse_infile(std::string infile, std::map<std::string, fl
     return;
   }
   in >> tmpDate;
+  if (!tmpDate.compare("date")) {
+    in >> tmpDate >> tmpDate >> tmpDate;
+  }
   while (!in.eof()) {
     if (!validate_date(tmpDate)) {
       std::cout << "Error: bad input => " << tmpDate << std::endl;
