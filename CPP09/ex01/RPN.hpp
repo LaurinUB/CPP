@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:55:26 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/19 18:36:03 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:44:45 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class RPN {
 
   static bool is_number(std::string str);
   static bool is_operator(std::string str);
-  static int to_int(std::string str);
+  static int  to_int(std::string str);
+  static int  do_op(std::stack<int>* stck, std::string opr);
 };
 
 #endif  // RPN_HPP_
