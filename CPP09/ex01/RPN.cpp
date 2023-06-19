@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:55:24 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/19 18:34:18 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:43:38 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,27 @@ int RPN::to_int(std::string str) {
   return i;
 }
 
+int RPN::do_op(std::stack<int>* stck, std::string opr) {
+  int val = stck->top();
+  stck->pop();
+  if (stck->empty()) {
+    std::cout << "Error" << std::endl;
+    return 1;
+  }
+  if (!opr.compare("+")) {
+    val = stck->top() + val;
+  } else if (!opr.compare("-")) {
+    val = stck->top() - val;
+  } else if (!opr.compare("*")) {
+    val = stck->top() * val;
+  } else if (!opr.compare("/")) {
+    val = stck->top() / val;
+  }
+  stck->pop();
+  stck->push(val);
+  return 0;
+}
+
 void  RPN::rpn(std::string input) {
   std::stack<int> stck;
   std::istringstream ss(input);
@@ -55,24 +76,9 @@ void  RPN::rpn(std::string input) {
     if (is_number(tmp)) {
       stck.push(to_int(tmp));
     } else if (is_operator(tmp)) {
-      val = stck.top();
-      stck.pop();
-      if (stck.empty()) {
-        std::cout << "Error" << std::endl;
+      if (do_op(&stck, tmp)) {
         return;
       }
-      if (!tmp.compare("+")) {
-        val = stck.top() + val;
-      } else if (!tmp.compare("-")) {
-        val = stck.top() - val;
-      } else if (!tmp.compare("*")) {
-        val = stck.top() * val;
-      } else if (!tmp.compare("/")) {
-        val = stck.top() / val;
-      }
-      stck.pop();
-      stck.push(val);
-      // std::cout << stck.top() << std::endl;
       continue;
     } else {
       std::cout << "Error" << std::endl;
