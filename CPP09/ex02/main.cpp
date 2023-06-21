@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:28:30 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/21 11:01:38 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:57:09 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,11 @@ int main(int argc, char *argv[]) {
   }
   PmergeMe::sortVec(vec);
   PmergeMe::sortQueue(queue);
+  std::cout << std::endl << "After: ";
+  it = vec.begin();
+  while (it != vec.end()) {
+    std::cout << *it << " ";
+    it++;
+  }
   return EXIT_SUCCESS;
 }

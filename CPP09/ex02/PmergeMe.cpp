@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/21 11:26:38 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:42:58 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,43 @@ int PmergeMe::validate_number(std::string val) {
   return -1;
 }
 
-int greater_element(std::vector<int> vec, std::vector<int> tmp, int i) {
-  if (vec[i] > vec[i - 1]) {
-    tmp.push_back(vec[i]);
-  }
-  return vec[i - 1];
-}
+void  insert_sort(std::vector<int>& tmp, std::vector<int>& vec) {
+  std::vector<int>::iterator itmp = tmp.begin();
+  std::vector<int>::iterator it = vec.begin();
 
-void  PmergeMe::sortVec(std::vector<int> vec) {
-  std::vector<int> tmp;
-
-  for (size_t i = 0; i < vec.size(); ++i) {
-    if ((i + 1) % 2 == 0) {
-      greater_element(vec, tmp, i);
+  while (itmp != tmp.end()) {
+    if (*itmp < *it) {
+      vec.insert(it, *itmp);
+      it = vec.begin();
+      itmp++;
+    } else {
+      it++;
     }
   }
+}
+
+void  split_pairs(std::vector<int>& tmp, std::vector<int>& vec) {
+  std::vector<int>::iterator it1 = vec.begin();
+  std::vector<int>::iterator it2 = vec.begin() + 1;
+
+  while (it2 != vec.end()) {
+    if (*it2 <= *it1) {
+      tmp.push_back(*it2);
+      vec.erase(it2);
+    } else {
+      tmp.push_back(*it1);
+      vec.erase(it1);
+    }
+    it2 = vec.begin() + 1;
+    it1 = vec.begin();
+  }
+}
+
+void  PmergeMe::sortVec(std::vector<int>& vec) {
+  std::vector<int> tmp;
+  split_pairs(tmp, vec);
+  sort(vec.begin(), vec.end());
+  insert_sort(tmp, vec);
 }
 
 void  PmergeMe::sortQueue(std::queue<int> que) {
