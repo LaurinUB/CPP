@@ -54,6 +54,7 @@ mutant
 #CPP09
 btc
 RPN
+PmergeMe
 
 # Precompiled Headers
 *.gch
