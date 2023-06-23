@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:28:30 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/21 14:57:09 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:12:21 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 int main(int argc, char *argv[]) {
   std::vector<int> vec;
-  std::queue<int> queue;
-  std::vector<int>::iterator it;
+  std::deque<int> deq;
   int tmp;
 
-  if (argc <= 1) {
+  if (argc < 2) {
     std::cout << "Error: no arguments." << std::endl;
+    return EXIT_FAILURE;
   }
   for (int i = 1; i < argc; ++i) {
     tmp = PmergeMe::validate_number(argv[i]);
     if (tmp >= 0) {
       vec.push_back(tmp);
-      queue.push(tmp);
+      deq.push_back(tmp);
     } else {
       return EXIT_FAILURE;
     }
   }
-  it = vec.begin();
   std::cout << "Before: ";
-  while (it != vec.end()) {
-    std::cout << *it << " ";
-    it++;
-  }
-  PmergeMe::sortVec(vec);
-  PmergeMe::sortQueue(queue);
+  print(vec);
+  double sortTimeVec = PmergeMe::sortVec(vec);
+  double sortTimeDeq = PmergeMe::sortDeq(deq);
   std::cout << std::endl << "After: ";
-  it = vec.begin();
-  while (it != vec.end()) {
-    std::cout << *it << " ";
-    it++;
-  }
+  print(vec);
+  std::cout << std::endl << "Time to process a range of " << argc - 1
+    << " elements with std::vector : "
+    << std::fixed << std::showpoint
+    << sortTimeVec << " seconds" << std::endl;
+  std::cout << "Time to process a range of " << argc - 1
+    << " elements with std::deque : "
+    << std::fixed << std::showpoint
+    << sortTimeDeq << " seconds" << std::endl;
   return EXIT_SUCCESS;
 }
