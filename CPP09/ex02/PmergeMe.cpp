@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/23 09:02:23 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/23 12:38:24 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ double  PmergeMe::sortVec(std::vector<int>& vec) {
 
   t = std::clock();
   split_pairs(tmp, vec);
-  sort(vec.begin(), vec.end());
+  sort_pairs(tmp, vec);
   insert_sort(tmp, vec);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
@@ -61,7 +61,7 @@ double  PmergeMe::sortDeq(std::deque<int>& deq) {
 
   t = std::clock();
   split_pairs(tmp, deq);
-  sort(deq.begin(), deq.end());
+  sort_pairs(tmp, deq);
   insert_sort(tmp, deq);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
