@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:43 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/21 13:09:41 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:10:57 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,71 @@
 #define PMERGEME_HPP_
 
 #include <iostream>
+#include <iomanip>
 #include <sstream>
-#include <queue>
+#include <deque>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <ctime>
 
-template<class T>
-typename T::const_iterator  easyfind(const T& container, int to_find) {
-  typename T::const_iterator iter;
-  iter = std::find(container.begin(), container.end(), to_find);
-  if (*iter == to_find) {
-    return iter;
-  } else {
-    return container.end();
+template<typename T>
+void  insert_sort(T& tmp, T& con) {
+  typename T::iterator itmp = tmp.begin();
+  typename T::iterator it = con.begin();
+
+  while (itmp != tmp.end()) {
+    if (*itmp < *it) {
+      con.insert(it, *itmp);
+      it = con.begin();
+      itmp++;
+    } else {
+      it++;
+    }
   }
+}
+
+template<typename T>
+void  split_pairs(T& tmp, T& con) {
+  typename T::iterator it1 = con.begin();
+  typename T::iterator it2 = con.begin() + 1;
+
+  while (it2 != con.end()) {
+    if (*it2 <= *it1) {
+      tmp.push_back(*it2);
+      con.erase(it2);
+    } else {
+      tmp.push_back(*it1);
+      con.erase(it1);
+    }
+    it2 = con.begin() + 1;
+    it1 = con.begin();
+  }
+}
+
+template<typename T>
+void  print(const T container) {
+  typename T::const_iterator it = container.begin();
+
+  if (container.size() > 100) {
+    for (int i = 0; i < 100; ++i) {
+      std::cout << *it << " ";
+      it++;
+    }
+    std::cout << " [...]";
+  } else {
+    while (it != container.end()) {
+      std::cout << *it << " ";
+      it++;
+    }
+  }
+  std::cout << std::endl;
 }
 
 class PmergeMe {
  public:
-  static void sortVec(std::vector<int>& vec);
-  static void sortQueue(std::queue<int> que);
+  static double sortVec(std::vector<int>& vec);
+  static double sortDeq(std::deque<int>& deq);
   static int validate_number(std::string val);
 
  private:
