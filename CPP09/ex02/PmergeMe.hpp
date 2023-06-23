@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:43 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/23 09:10:57 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/23 12:37:57 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void  split_pairs(T& tmp, T& con) {
   typename T::iterator it1 = con.begin();
   typename T::iterator it2 = con.begin() + 1;
 
-  while (it2 != con.end()) {
+  while (it1 != con.end() && it2 != con.end()) {
     if (*it2 <= *it1) {
       tmp.push_back(*it2);
       con.erase(it2);
@@ -51,8 +51,31 @@ void  split_pairs(T& tmp, T& con) {
       tmp.push_back(*it1);
       con.erase(it1);
     }
-    it2 = con.begin() + 1;
-    it1 = con.begin();
+    it2 = con.begin() + tmp.size();
+    it1 = con.begin() + tmp.size() - 1;
+  }
+}
+
+template<typename T>
+void  sort_pairs(T& tmp, T& con) {
+  typename T::iterator first = con.begin();
+  typename T::iterator last = con.end();
+  typename T::iterator cr = tmp.begin() + 1;
+  typename T::iterator prv = tmp.begin();
+
+  for (typename T::iterator sorted = first; first != last; last = sorted) {
+    sorted = first;
+    cr = tmp.begin() + 1;
+    prv = tmp.begin();
+    for (typename T::iterator cur = first, prev = first; ++cur != last; ++prev) {
+      if (*cur <= *prev) {
+        std::iter_swap(cur, prev);
+        std::iter_swap(cr, prv);
+        sorted = cur;
+      }
+      cr++;
+      prv++;
+    }
   }
 }
 
@@ -65,7 +88,7 @@ void  print(const T container) {
       std::cout << *it << " ";
       it++;
     }
-    std::cout << " [...]";
+    std::cout << " [ ... ]";
   } else {
     while (it != container.end()) {
       std::cout << *it << " ";
