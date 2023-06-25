@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:40:55 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:35:58 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,38 @@ int PmergeMe::validate_number(std::string val) {
   return -1;
 }
 
+std::vector<int>  PmergeMe::jacobsthalNbr(int argc) {
+  std::vector<int> res;
+  int i = 1;
+  int idx = 1;
+  int tmp = idx;
+
+  while (idx < argc) {
+    tmp = 2 * idx + pow(-1, i);
+    if (tmp < argc) {
+      res.push_back(tmp - 1);
+      tmp--;
+      while (tmp > idx) {
+        res.push_back(tmp - 1);
+        tmp--;
+      }
+    } else {
+      tmp = argc - 1;
+      if (tmp > idx) {
+        res.push_back(tmp - 1);
+      }
+      tmp--;
+      while (tmp > idx) {
+        res.push_back(tmp - 1);
+        tmp--;
+      }
+    }
+    idx = 2 * idx + pow(-1 , i);
+    i++;
+  }
+  return res;
+}
+
 double  PmergeMe::sortVec(std::vector<int>& vec) {
   std::vector<int> tmp;
   clock_t t;
@@ -50,7 +82,8 @@ double  PmergeMe::sortVec(std::vector<int>& vec) {
   t = std::clock();
   split_pairs(tmp, vec);
   sort_pairs(tmp, vec);
-  insert_sort(tmp, vec);
+  std::vector<int> nbr = jacobsthalNbr(tmp.size());
+  insert_sort(tmp, vec, nbr);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
 }
@@ -62,7 +95,8 @@ double  PmergeMe::sortDeq(std::deque<int>& deq) {
   t = std::clock();
   split_pairs(tmp, deq);
   sort_pairs(tmp, deq);
-  insert_sort(tmp, deq);
+  std::vector<int> nbr = jacobsthalNbr(tmp.size());
+  insert_sort(tmp, deq, nbr);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
 }
