@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/25 14:35:58 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:47:51 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,16 @@ double  PmergeMe::sortVec(std::vector<int>& vec) {
   clock_t t;
 
   t = std::clock();
+  if (vec.size() == 1) {
+    t = std::clock() - t;
+    return (static_cast<double>(t) / CLOCKS_PER_SEC);
+  } else if (vec.size() == 2) {
+    if (vec[0] > vec[1]) {
+      std::iter_swap(vec.begin(), vec.begin() + 1);
+    }
+    t = std::clock() - t;
+    return (static_cast<double>(t) / CLOCKS_PER_SEC);
+  }
   split_pairs(tmp, vec);
   sort_pairs(tmp, vec);
   std::vector<int> nbr = jacobsthalNbr(tmp.size());
@@ -93,6 +103,16 @@ double  PmergeMe::sortDeq(std::deque<int>& deq) {
   clock_t t;
 
   t = std::clock();
+  if (deq.size() == 1) {
+    t = std::clock() - t;
+    return (static_cast<double>(t) / CLOCKS_PER_SEC);
+  } else if (deq.size() == 2) {
+    if (deq[0] > deq[1]) {
+      std::iter_swap(deq.begin(), deq.begin() + 1);
+    }
+    t = std::clock() - t;
+    return (static_cast<double>(t) / CLOCKS_PER_SEC);
+  }
   split_pairs(tmp, deq);
   sort_pairs(tmp, deq);
   std::vector<int> nbr = jacobsthalNbr(tmp.size());
