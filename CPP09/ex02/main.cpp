@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:28:30 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/25 14:35:29 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:00:44 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,19 @@ int main(int argc, char *argv[]) {
   double sortTimeDeq = PmergeMe::sortDeq(deq);
   if (!is_sorted(vec) || !is_sorted(deq)) {
     std::cout << "Error: failed to sort." << std::endl;
+    if (!is_sorted(deq)) {
+      std::cout << "on deq" << std::endl;
+      print(deq);
+    } else {
+      std::cout << "on vec" << std::endl;
+      print(vec);
+    }
     return EXIT_FAILURE;
   }
   std::cout << std::endl << "After: ";
   print(vec);
-  // std::cout << "Deq: ";
-  // print(vec);
+  std::cout << "Deq: ";
+  print(vec);
   std::cout << std::endl << "Time to process a range of " << vec.size()
     << " elements with std::vector : "
     << std::fixed << std::showpoint
