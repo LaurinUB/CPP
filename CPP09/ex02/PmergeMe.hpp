@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:43 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/23 17:47:09 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:35:44 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void  print(const T& container) {
     std::cout << " [ ... ]";
   } else {
     while (it != container.end()) {
-      std::cout << *it << "\t";
+      std::cout << *it << " ";
       it++;
     }
   }
@@ -68,16 +68,25 @@ int binary_search(int nbr, const T& target) {
       return m;
     }
   }
-  if (target[m] > nbr)
+  if (target[m] >= nbr)
     return m;
   else
     return m + 1;
 }
 
 template<typename T>
-void  insert_sort(T& tmp, T& con) {
-  int t = 0;
+void  insert_at(typename T::iterator it, T& con) {
+  int t = binary_search(*it, con);
+  if (t == 0 && *it > con[t]) {
+    std::cout << "Error: could not find spot to insert." << std::endl;
+    return;
+  } else {
+    con.insert(con.begin() + t, *it);
+  }
+}
 
+template<typename T, typename S>
+void  insert_sort(T& tmp, T& con, const S& nbr) {
   if (tmp.size() != con.size()) {
     typename T::iterator last = tmp.begin() + tmp.size() - 2;
     con.push_back(*last);
@@ -87,16 +96,10 @@ void  insert_sort(T& tmp, T& con) {
     con.push_back(*last);
     tmp.erase(last);
   }
-  typename T::iterator it = tmp.begin();
-  while (it != tmp.begin() + tmp.size() - 1) {
-    t = binary_search(*it, con);
-    if (t == 0 && *it != con[t]) {
-      std::cout << *it << " WTF" << std::endl;
-      return;
-    } else {
-      con.insert(con.begin() + t, *it);
-    }
-    it++;
+  typename T::iterator it = tmp.begin() + nbr[0];
+  for (size_t i = 0; i < tmp.size(); ++i) {
+    insert_at(it, con);
+    it = tmp.begin() + nbr[i];
   }
 }
 
@@ -118,7 +121,7 @@ void  split_pairs(T& tmp, T& con) {
     it1 = con.begin() + tmp.size();
   }
   if (con.size() != tmp.size()) {
-    tmp.push_back(*con.end());
+    tmp.push_back(*(con.begin() + con.size() - 1));
     con.pop_back();
   }
 }
@@ -153,6 +156,7 @@ class PmergeMe {
   static double sortVec(std::vector<int>& vec);
   static double sortDeq(std::deque<int>& deq);
   static int validate_number(std::string val);
+  static std::vector<int> jacobsthalNbr(int argc);
 
  private:
   PmergeMe();
