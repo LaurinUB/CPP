@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:43 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/25 19:56:43 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/26 09:46:03 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@
 #include <string>
 #include <algorithm>
 #include <ctime>
+#include <cmath>
 #include <utility>
 
 class PmergeMe {
  public:
+  static std::vector< std::pair<int, int> > split_pairs_vec(const std::vector<int>& vec);
   static double sortVec(std::vector<int>& vec);
+  static std::deque< std::pair<int, int> > split_pairs_deq(const std::deque<int>& deq);
   static double sortDeq(std::deque<int>& deq);
   static int validate_number(std::string val);
   static std::vector<int> jacobsthalNbr(int argc);
@@ -76,16 +79,13 @@ int binary_search(int nbr, const T& target) {
     m = (l + r) / 2;
     if (target[m] < nbr) {
       l = m + 1;
-      std::cout << "compare" << std::endl;
     } else if (target[m] > nbr) {
       r = m - 1;
-      std::cout << "compare" << std::endl;
     } else {
       return m;
     }
   }
   if (target[m] >= nbr) {
-    std::cout << "compare" << std::endl;
     return m;
   } else {
     return m + 1;
@@ -104,37 +104,12 @@ void  insert_at(typename T::iterator it, T& con) {
 }
 
 template<typename T>
-void  split_pairs(T& tmp, T& con) {
-  typename T::iterator it1 = con.begin();
-  typename T::iterator it2 = con.begin() + 1;
-
-  while (it1 != con.end() && it2 != con.end()) {
-    if (*it2 <= *it1) {
-      tmp.push_back(*it1);
-      con.erase(it1);
-      std::cout << "compare" << std::endl;
-    } else {
-      tmp.push_back(*it2);
-      con.erase(it2);
-      std::cout << "compare" << std::endl;
-    }
-    it2 = con.begin() + tmp.size() + 1;
-    it1 = con.begin() + tmp.size();
-  }
-  if (con.size() != tmp.size()) {
-    tmp.push_back(*(con.begin() + con.size() - 1));
-    con.pop_back();
-  }
-}
-
-template<typename T>
 T merge(const T& left, const T& right) {
   T res;
   size_t  indexL = 0;
   size_t  indexR = 0;
 
   while (indexL < left.size() && indexR < right.size()) {
-    std::cout << "compare" << std::endl;
     if (left[indexL].first < right[indexR].first) {
       res.push_back(left[indexL]);
       indexL++;
@@ -205,7 +180,6 @@ T sort_pairs(T con) {
   if (con.size() == 1) {
     return con;
   } else if (con.size() == 2) {
-    std::cout << "compare" << std::endl;
     if (con[0].first > con[1].first) {
       iter_swap(con.begin(), con.begin() + 1);
     }

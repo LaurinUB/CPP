@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:28:30 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/25 20:00:44 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/26 09:32:14 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int main(int argc, char *argv[]) {
   }
   std::cout << std::endl << "After: ";
   print(vec);
-  std::cout << "Deq: ";
-  print(vec);
+  // std::cout << "Deq: ";
+  // print(deq);
   std::cout << std::endl << "Time to process a range of " << vec.size()
     << " elements with std::vector : "
     << std::fixed << std::showpoint
