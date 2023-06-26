@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:49:05 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/25 20:05:25 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/06/26 09:45:25 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ std::vector<int>  PmergeMe::jacobsthalNbr(int argc) {
   return res;
 }
 
-std::vector< std::pair<int, int> > split_pairs_vec(const std::vector<int>& vec) {
+std::vector< std::pair<int, int> > PmergeMe::split_pairs_vec(const std::vector<int>& vec) {
   std::vector< std::pair<int, int> > res;
 
   if (vec.size() == 2) {
@@ -99,36 +99,6 @@ std::vector< std::pair<int, int> > split_pairs_vec(const std::vector<int>& vec) 
   return res;
 }
 
-std::vector<int>  insert_sort_vec(std::vector< std::pair<int, int> > pairs, int unp) {
-  std::vector<int>  vec;
-  std::vector< std::pair<int, int> >::iterator it = pairs.begin();
-  std::vector<int> nbr = PmergeMe::jacobsthalNbr(pairs.size());
-
-  if (pairs.size() == 1) {
-    return sort_one(pairs, vec, unp);
-  }
-  vec.push_back(it->second);
-  for (size_t i = 0; i < pairs.size(); ++i) {
-    vec.push_back(it[i].first);
-  }
-  pairs.erase(it);
-  it = pairs.begin() + nbr[0];
-  for (size_t i = 0; i < nbr.size(); ++i) {
-    int t = binary_search(it->second, vec);
-    if (t == 0 && it->second > vec[t]) {
-      std::cout << "Error: could not find spot to insert." << std::endl;
-      exit(EXIT_FAILURE);
-    } else {
-      vec.insert(vec.begin() + t, it->second);
-    }
-    it = pairs.begin() + nbr[i];
-  }
-  if (unp != -1) {
-    vec.insert(vec.begin() + binary_search(unp, vec), unp);
-  }
-  return vec;
-}
-
 double  PmergeMe::sortVec(std::vector<int>& vec) {
   int unpaired = -1;
   clock_t t;
@@ -150,13 +120,12 @@ double  PmergeMe::sortVec(std::vector<int>& vec) {
   }
   std::vector< std::pair<int, int> > pairs = split_pairs_vec(vec);
   pairs = sort_pairs(pairs);
-  // vec = insert_sort_vec(pairs, unpaired);
   vec = insert_sort(pairs, vec, unpaired);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
 }
 
-std::deque< std::pair<int, int> > split_pairs_deq(const std::deque<int>& deq) {
+std::deque< std::pair<int, int> > PmergeMe::split_pairs_deq(const std::deque<int>& deq) {
   std::deque< std::pair<int, int> > res;
 
   if (deq.size() == 2) {
@@ -200,16 +169,8 @@ double  PmergeMe::sortDeq(std::deque<int>& deq) {
     deq.pop_back();
   }
   std::deque< std::pair<int, int> > pairs = split_pairs_deq(deq);
-  for (size_t i = 0; i < pairs.size(); ++i) {
-    std::cout << "info: ";
-    std::cout << pairs[i].first << ", " << pairs[i].second<< std::endl;
-  }
   pairs = sort_pairs(pairs);
-  for (size_t i = 0; i < pairs.size(); ++i) {
-    std::cout << "info 2 :";
-    std::cout << pairs[i].first << ", " << pairs[i].second<< std::endl;
-  }
-  insert_sort(pairs, deq, unpaired);
+  deq = insert_sort(pairs, deq, unpaired);
   t = std::clock() - t;
   return (static_cast<double>(t) / CLOCKS_PER_SEC);
 }
