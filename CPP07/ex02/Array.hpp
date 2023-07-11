@@ -6,7 +6,7 @@
 /*   By: luntiet- <luntiet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:59:14 by luntiet-          #+#    #+#             */
-/*   Updated: 2023/06/08 14:38:02 by luntiet-         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:53:51 by luntiet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ class Array {
   ~Array(void) { delete[] data_; }
 
   Array<T>& operator=(const Array<T> &rhs) {
-    delete[] this->data_;
+    if (this != &rhs) {
+      delete[] this->data_;
+    }
     this->data_ = new T[rhs.length_];
     this->length_ = rhs.length_;
     for (unsigned int i = 0; i < rhs.length_; ++i) {
